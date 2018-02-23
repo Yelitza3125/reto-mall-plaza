@@ -140,8 +140,9 @@ function createEvent(eventData) {
     'attendees': [
       {'email': 'mpbperu@gmail.com',
         'days': 24},
-      {'email': 'andrea19_93@hotmail.com',
+      {'email': 'deyel_99@hotmail.com',
         'days': 24}
+
     ],
     'reminders': {
       'useDefault': false,

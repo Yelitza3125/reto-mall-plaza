@@ -147,15 +147,38 @@ Luego de una iteración y corrección de contenido, se testeo con el cliente.
 
 Luego de una nueva deliberación en el equipo y corrección de errores, se decidió dar prioridad al calendario de tareas y la persistencia de data. Se inició con el maquetado, aplicando el branding de la empresa en el diseño, tipografía y colores. 
 
+### F. Flujo de la aplicación.
+
+**1. Vista: Inicio de sesión**
+
+La primera vista es el inicio de sesión del usuario de Mall Plaza Bellavista, a través de una cuenta de gmail del centro comercial. El inicio de sesión es mediante autenticación de Firebase.
+
+**2. Vista: Selección de Área**
+
+En esta vista el usuario selecciona el área donde crear el proyecto o tarea a realizar. Por medio un hover sobre las opciones, se muestran los botones para crear un nuevo proyecto o ver el calendario de todas las tareas asignadas. El flujo continúa cuando el usuario presiona el botón de "+".
+
+**3. Vista: Registro de proyecto**
+
+Vista que consiste en un formulario donde el usuario selecciona el elemento o servicio donde realizará el proyecto. También debe llenar los campos de inicio y final del proyecto.
+Al presionar la opción de "Crear", se redirecciona a la siguiente vista.
+
+**4. Vista: Calendario**
+
+En esta vista, el proyecto creado en el formulario de registro, se muestra en el calendario. Por medio de Zapier se realiza la sincronización entre Google Calendar y Firebase. Al mismo tiempo, el pluggin full Calendar ayuda a visualizar los eventos en el calendario. Firebase se encarga de mostrar tales proyectos en la siguiente vista. 
+
+**5. Vista events**
+Se muestran los eventos programados en el calendario en una lista ordenada.
+
+
 ### E. Herramientas utilizadas:
 
 - HTML5
 - CSS3
 - Materialize.
 - Adobe Ilustrator
+- plugin Full Calendar
+- Firebase
 - Javascript.
 - jQuery.
 - Google Calendar API
-- JSON
-- AJAX
 - Zapier
