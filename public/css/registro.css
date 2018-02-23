@@ -2,7 +2,7 @@
   
 @font-face {
   font-family: BrixSans;
-  src: url('../../public/assets/fonts/BrixSansBlack.otf');
+  src: url('../assets/fonts/BrixSansBlack.otf');
 }
 
 @font-face {

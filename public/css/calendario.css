@@ -1,5 +1,5 @@
 @font-face {
-  font-family: BrixSans;
+  font-family: BrixSansBlack;
   src: url('../assets/fonts/BrixSansBlack.otf');
 }
 
@@ -9,7 +9,7 @@
 }
 
 * {
-  font-family: BrixSans, sans-serif;
+  font-family: BrixSansRegular, sans-serif;
 }
 
 /* #calendar {

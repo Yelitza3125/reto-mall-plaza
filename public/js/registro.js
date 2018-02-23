@@ -132,12 +132,10 @@ function createEvent(eventData) {
   var resource = {
     'summary': eventData.eventTitle,
     'start': {
-      'dateTime': new Date(eventData.date).toISOString(),
-      'timezone': 'GTM-0500'
+      'dateTime': new Date(eventData.date).toISOString()
     },
     'end': {
-      'dateTime': new Date(eventData.endDate).toISOString(),
-      'timezone': 'GTM-0500'
+      'dateTime': new Date(eventData.endDate).toISOString()
     },
     'attendees': [
       {'email': 'mpbperu@gmail.com'},
@@ -155,6 +153,7 @@ function createEvent(eventData) {
       ]
     }
   };
+  console.log(resource.start.dayTime);
   // create the request
   var request = gapi.client.calendar.events.insert({
     'calendarId': '626c8uffo3v8c4c46l6ctckmlc@group.calendar.google.com',
