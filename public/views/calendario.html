@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../vendors/fullcalendar/fullcalendar.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+
+  <title>Calendario</title>
+</head>
+
+<body class="container">
+  <p>Mall Plaza</p>
+
+  <!--Add buttons to initiate auth sequence and sign out-->
+  <button id="authorize-button" style="visibility: visible">Login &amp; Authorize</button>
+  <!-- <button id="addToCalendar" style="visibility: hidden;">Add to Google Calendar</button> -->
+
+  <pre id="content"></pre>
+
+  <div id="calendar"></div>
+  <div class="container text-center">
+    <h5>Crear Evento</h5>
+    <p>Título Evento</p>
+    <input id="event" type="text" class="form-control">
+    <p>Fecha de inicio</p>
+    <input id="date" type="date" class="form-control">
+
+    <p>Fecha de fin</p>
+    <input id="enddate" type="date" class="form-control">
+
+    <button id="addToCalendar">Crear</button>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+
+  <script src='../vendors/fullcalendar/lib/moment.min.js'></script>
+  <script src='../vendors/fullcalendar/fullcalendar.js'></script>
+  <script src='../vendors/fullcalendar/gcal.js'></script>
+  <script src="../js/calendario.js"></script>
+  <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+
+</body>
+
+</html>

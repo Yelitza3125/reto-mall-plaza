@@ -1,0 +1,23 @@
+{
+  "name": "reto-mall-plaza",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yelitza3125/reto-mall-plaza.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yelitza3125/reto-mall-plaza/issues"
+  },
+  "homepage": "https://github.com/Yelitza3125/reto-mall-plaza#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
