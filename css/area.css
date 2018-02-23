@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*Fuentes*/
+
+
+@font-face {
+  font-family: BrixSans;
+  src: url('../assets/fonts/BrixSansBlack.otf');
+}
+
+@font-face {
+  font-family: BrixSansRegular;
+  src: url('../assets/fonts/BrixSansRegular.otf');
+}
+
+/* Clase general */
+body, html, section {
+  height: 100%;
+}
+
+.display-flex-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Title*/
+h2.title {
+  font-family: BrixSansRegular;
+  margin-bottom: 2em;
+  color: #333;
+}
+
+/* Container de areas */
+
+div.area-container {
+  /*outline: 1px solid red; */
+  height: 250px;
+  background-color: #e90049;
+}
+
+div.area-container img {
+  width: 70%;
+}
