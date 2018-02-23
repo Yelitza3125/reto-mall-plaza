@@ -5,6 +5,15 @@
 // b32fL6T5cwOdo5A67FsasKOT
 // API
 // AIzaSyD3UdXv-AuAkuoe8JIBawuDVQxqPxkkyT0
+/* Iniciar input picker */
+$('.datepicker').pickadate({
+  selectMonths: true, // Creates a dropdown to control month
+  selectYears: 15, // Creates a dropdown of 15 years to control year,
+  today: 'Today',
+  clear: 'Clear',
+  close: 'Ok',
+  closeOnSelect: false // Close upon selecting a date,
+});
 
 // Client ID and API key from the Developer Console
 var CLIENT_ID = '23083249729-htmk5866j9kth13kueqqnh5uocgp53lu.apps.googleusercontent.com';
