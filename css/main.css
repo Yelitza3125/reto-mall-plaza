@@ -1,19 +1,9 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-
 
 @font-face {
   font-family: BrixSans;
   src: url('../assets/fonts/BrixSansBlack.otf');
 }
 
-body, html {
-  height: 100%;
-}
 /* Clase general */
 .display-flex-column {
   display: flex;
@@ -23,7 +13,7 @@ body, html {
 }
 
 main {
-
+  width: 100%;
   background: rgba(233,0,74,1);
   background: -moz-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(233,0,74,0.82) 37%, rgba(233,0,74,0.75) 51%, rgba(233,0,74,0.68) 65%, rgba(233,0,74,0.64) 73%, rgba(233,0,74,0.58) 85%, rgba(233,0,74,0.5) 100%);
   background: -webkit-gradient(left top, right top, color-stop(0%, rgba(233,0,74,1)), color-stop(37%, rgba(233,0,74,0.82)), color-stop(51%, rgba(233,0,74,0.75)), color-stop(65%, rgba(233,0,74,0.68)), color-stop(73%, rgba(233,0,74,0.64)), color-stop(85%, rgba(233,0,74,0.58)), color-stop(100%, rgba(233,0,74,0.5)));
@@ -35,7 +25,7 @@ main {
 
  height: 100%;
 }
-h2 {
+ h1 {
   font-family: BrixSans;
 }
 /* Estilos del logotipo */
