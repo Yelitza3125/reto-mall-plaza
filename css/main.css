@@ -4,9 +4,71 @@
   padding: 0;
 }
 
+
+
+@font-face {
+  font-family: BrixSans;
+  src: url('../assets/fonts/BrixSansBlack.otf');
+}
+
+body, html {
+  height: 100%;
+}
+/* Clase general */
 .display-flex-column {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+main {
+
+  background: rgba(233,0,74,1);
+  background: -moz-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(233,0,74,0.82) 37%, rgba(233,0,74,0.75) 51%, rgba(233,0,74,0.68) 65%, rgba(233,0,74,0.64) 73%, rgba(233,0,74,0.58) 85%, rgba(233,0,74,0.5) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(233,0,74,1)), color-stop(37%, rgba(233,0,74,0.82)), color-stop(51%, rgba(233,0,74,0.75)), color-stop(65%, rgba(233,0,74,0.68)), color-stop(73%, rgba(233,0,74,0.64)), color-stop(85%, rgba(233,0,74,0.58)), color-stop(100%, rgba(233,0,74,0.5)));
+  background: -webkit-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(233,0,74,0.82) 37%, rgba(233,0,74,0.75) 51%, rgba(233,0,74,0.68) 65%, rgba(233,0,74,0.64) 73%, rgba(233,0,74,0.58) 85%, rgba(233,0,74,0.5) 100%);
+  background: -o-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(233,0,74,0.82) 37%, rgba(233,0,74,0.75) 51%, rgba(233,0,74,0.68) 65%, rgba(233,0,74,0.64) 73%, rgba(233,0,74,0.58) 85%, rgba(233,0,74,0.5) 100%);
+  background: -ms-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(233,0,74,0.82) 37%, rgba(233,0,74,0.75) 51%, rgba(233,0,74,0.68) 65%, rgba(233,0,74,0.64) 73%, rgba(233,0,74,0.58) 85%, rgba(233,0,74,0.5) 100%);
+  background: linear-gradient(to right, rgba(233,0,74,1) 0%, rgba(233,0,74,0.82) 37%, rgba(233,0,74,0.75) 51%, rgba(233,0,74,0.68) 65%, rgba(233,0,74,0.64) 73%, rgba(233,0,74,0.58) 85%, rgba(233,0,74,0.5) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9004a', endColorstr='#e9004a', GradientType=1 );
+
+ height: 100%;
+}
+h2 {
+  font-family: BrixSans;
+}
+/* Estilos del logotipo */
+
+.logotipo {
+  margin-top: 3em;
+  width: 25%;
+}
+/*Estilos del formulario */
+
+.section-form {
+  margin-top: 4em;
+}
+
+form {
+  margin: 0 auto;
+}
+
+input {
+  color: #fff;
+}
+.input-field label {
+  color: #fff;
+} 
+
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: #fff;
+}
+
+
+@media (max-width: 600px) {
+  .logotipo {
+    width: 50%;
+  }
 }
