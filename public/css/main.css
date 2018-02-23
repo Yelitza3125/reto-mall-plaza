@@ -28,18 +28,25 @@ main {
 }
  h1 {
   font-family: BrixSans;
+  margin: 4rem 0;
 }
 /* Estilos del logotipo */
 
-.btn-color{
+.text-logotipo {
   color: #e9004a;
-  border-radius: 10px;
+  font-weight: bolder;
+  padding-left: 2rem;
+  display: inline-block;
 }
 
 .logotipo {
   margin-top: 3em;
   width: 25%;
 }
+.margin-logo {
+  margin: 0 1rem;
+}
+
 /*Estilos del formulario */
 
 .section-form {
@@ -80,5 +87,17 @@ input:hover, input:active{
 @media (max-width: 600px) {
   .logotipo {
     width: 50%;
+  }
+}
+@media (min-width:992px) {
+  .logotipo {
+    width: 50%;
+  }
+  .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-bottom: 0;
   }
 }
