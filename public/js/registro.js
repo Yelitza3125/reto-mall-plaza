@@ -16,7 +16,7 @@ $('.datepicker').pickadate({
 });
 
 // Client ID and API key from the Developer Console
-var CLIENT_ID = '23083249729-htmk5866j9kth13kueqqnh5uocgp53lu.apps.googleusercontent.com';
+var CLIENT_ID = '23083249729-qqdogr20af8djk16belc7eqrhsg569u0.apps.googleusercontent.com';
 var API_KEY = 'AIzaSyD3UdXv-AuAkuoe8JIBawuDVQxqPxkkyT0';
 
 // Array of API discovery doc URLs for APIs used by the quickstart
