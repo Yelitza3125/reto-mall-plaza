@@ -13,6 +13,7 @@
 }
 
 main {
+  min-height: 100vh;
   width: 100%;
   background: rgba(233,0,74,1);
   background: -moz-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(233,0,74,0.82) 37%, rgba(233,0,74,0.75) 51%, rgba(233,0,74,0.68) 65%, rgba(233,0,74,0.64) 73%, rgba(233,0,74,0.58) 85%, rgba(233,0,74,0.5) 100%);
@@ -29,6 +30,11 @@ main {
   font-family: BrixSans;
 }
 /* Estilos del logotipo */
+
+.btn-color{
+  color: #e9004a;
+  border-radius: 10px;
+}
 
 .logotipo {
   margin-top: 3em;
@@ -55,8 +61,21 @@ input {
 /* label focus color */
 .input-field input[type=text]:focus + label {
   color: #fff;
+  box-shadow: #fff !important;
+}
+input[type=password]:not(.browser-default), input[type=text]:not(.browser-default):focus:not([readonly]) {
+  box-shadow: 0 .5px 0 0 #fff !important;
 }
 
+
+input[type=password]:not(.browser-default).validate+label, input[type=text]:not(.browser-default).validate+label {
+  color: #fff;
+}
+ 
+
+input:hover, input:active{
+  color: #fff;
+} 
 
 @media (max-width: 600px) {
   .logotipo {
