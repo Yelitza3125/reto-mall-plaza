@@ -1,0 +1,18 @@
+@font-face {
+  font-family: BrixSans;
+  src: url('../assets/fonts/BrixSansBlack.otf');
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-family: BrixSans;
+  color: #ffffff;
+  padding: 5rem 0;
+}
+.bg-title {
+  background-color: #e9004a;
+}

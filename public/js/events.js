@@ -14,7 +14,25 @@ var box = $('.box-events');
 events.on('value', function(datos) {
   data = datos.val();
   $.each(data, function(indice, valor) {
-    var template = `<div><p>${valor.title}</p></div>`;
+    var template = 
+    `<div>
+      <p>${valor.title}</p>
+      <p class="opcion">Pendiente</p>
+      <select class="list" name="estado">
+        <option data-stage='Pendiente' value="Pendiente">Pendiente</option>
+        <option data-stage='cotización' value="cotización">cotización</option>
+        <option data-stage='OC proceso' value="OC proceso">OC proceso</option>
+        <option data-stage='revisión informe' value="revisión informe">revisión informe</option>
+        <option data-stage='Hes' value="Hes">Hes</option>
+        <option data-stage='correcciones' value="correcciones">correcciones</option>
+        <option data-stage='finalizado' value="finalizado">finalizado</option>
+      </select>
+    </div>`;
     box.append(template);
   });
+  $('.list').change(function() {
+    // console.log(event.target);
+    var stage = $(this).find('option:selected').attr('data-stage');
+    $(this).prev().text(stage);
+  });  
 });
