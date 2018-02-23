@@ -32,7 +32,8 @@ function handleClientLoad() {
 
 var addButton = $('#addToCalendar');
 var signoutButton = $('#signout-button');
-addButton.on('click', function() {
+addButton.on('click', function(event) {
+  event.preventDefault();
   var userChoices = getUserInput();
   console.log(userChoices);
   if (userChoices)
