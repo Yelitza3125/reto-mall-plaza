@@ -43,16 +43,17 @@ addButton.on('click', function() {
 function getUserInput() {
   var date = $('#date').val();
   var endDate = $('#enddate').val();
-  var eventDesc = $('#event').val();
-
+  var eventTitle = $('#event').val();
+  var eventDes = $('#textarea1').val();
   // check input values, they should not be empty
-  if (date === '' || endDate === '' || eventDesc === '') {
+  if (date === '' || endDate === '' || eventTitle === '') {
     alert('All your input fields should have a meaningful value.');
     return;
   } else return {
     'date': date,
     'endDate': endDate,
-    'eventTitle': eventDesc
+    'eventTitle': eventTitle,
+    'eventDes': eventDes
   };
 }
 
@@ -140,6 +141,7 @@ function createEvent(eventData) {
   // First create resource that will be send to server.
   var resource = {
     'summary': eventData.eventTitle,
+    'description': eventData.eventDes,
     'start': {
       'dateTime': new Date(eventData.date).toISOString(),
       'timeZone': 'America/Lima'
@@ -149,10 +151,9 @@ function createEvent(eventData) {
       'timeZone': 'America/Lima'
     },
     'attendees': [
-      {'email': 'mpbperu@gmail.com',
-        'days': 24},
-      {'email': 'deyel_99@hotmail.com',
-        'days': 24}
+      {'email': 'mpbperu@gmail.com'
+      },
+      {'email': 'deyel_99@hotmail.com'}
 
     ],
     'reminders': {
