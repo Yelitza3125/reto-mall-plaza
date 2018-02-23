@@ -46,7 +46,7 @@ function initClient() {
  */
 function updateSigninStatus(isSignedIn) {
   if (isSignedIn) {
-    $(location).attr('href', 'views/calendario.html');
+    $(location).attr('href', 'views/area.html');
   } else {
     // No hay sesión iniciada
   }

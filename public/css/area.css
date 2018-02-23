@@ -1,11 +1,10 @@
-* {
+/* * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
+  } */
   
   /*Fuentes*/
-  
   
   @font-face {
     font-family: BrixSans;

@@ -6,5 +6,6 @@ $('#calendar').fullCalendar({
   events: {
     googleCalendarId: '626c8uffo3v8c4c46l6ctckmlc@group.calendar.google.com'
   },
-  eventColor: '#e90049'
+  eventColor: '#e90049',
+  locale: 'es'
 });
