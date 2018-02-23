@@ -1,8 +1,23 @@
-/* .fc-content {
-  background-color: 
+@font-face {
+  font-family: BrixSans;
+  src: url('../assets/fonts/BrixSansBlack.otf');
 }
 
-.fc-day-header.fc-widget-header {
-  background-color: #ededed;
-  color: #fff;
+@font-face {
+  font-family: BrixSansRegular;
+  src: url('../assets/fonts/BrixSansRegular.otf');
+}
+
+* {
+  font-family: BrixSans, sans-serif;
+}
+
+/* #calendar {
+  min-height: 80vh;
+}
+
+@media (min-width: 601px) {
+  #calendar {
+    min-height: 60vh;
+  }
 } */

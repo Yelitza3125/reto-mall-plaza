@@ -132,16 +132,16 @@ function createEvent(eventData) {
   var resource = {
     'summary': eventData.eventTitle,
     'start': {
-      'dateTime': new Date(eventData.date).toISOString()
+      'dateTime': new Date(eventData.date).to(),
+      'timezone': 'GTM-0500'
     },
     'end': {
-      'dateTime': new Date(eventData.endDate).toISOString()
+      'dateTime': new Date(eventData.endDate).toLocaleDateString(),
+      'timezone': 'GTM-0500'
     },
     'attendees': [
-      {'email': 'mpbperu@gmail.com',
-        'days': 24},
-      {'email': 'andrea19_93@hotmail.com',
-        'days': 24}
+      {'email': 'mpbperu@gmail.com'},
+      {'email': 'andrea19_93@hotmail.com'}
     ],
     'reminders': {
       'useDefault': false,
