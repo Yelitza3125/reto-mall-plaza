@@ -22,7 +22,7 @@ body, html, section {
   height: 100%;
 }
 
-.display-flex-row {
+.container-desktop-flex {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,8 +67,10 @@ div.experiencia {
 
 /* Estilo del contenedor */
 div.area-container {
+  border-radius: 10px;
   background-size: contain;
   background-position: center center;
+  background-repeat: no-repeat;
 }
 
 /*Contenedor que aparece al hacer hover */
@@ -92,4 +94,31 @@ div.area-container:hover div.button-container {
 div.icon-container i {
   cursor: pointer;
   margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+
+  h2.title {
+    margin-bottom: 1em;
+    margin-top: 10em;
+    font-size: 2.5em;
+
+  }
+  
+  
+  .container-desktop-flex {   
+    flex-direction: column;
+    align-items: center; 
+  }  
+
+  div.button-container {
+    height: 200px;
+  }
+
+  div.area-container {
+    /*outline: 1px solid red; */
+    margin: auto;
+    height: 200px;
+    margin-top: 1em;
+  }  
 }
