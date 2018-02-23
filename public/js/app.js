@@ -1,5 +1,7 @@
 const user = $('#user');
 const password = $('#password');
+
+const boxAdd = $('#box-add');
 var validateMail = false;
 var validatePassword = false;
 var btnLogin = $('#btn-login');
