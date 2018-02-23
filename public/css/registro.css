@@ -1,0 +1,27 @@
+/*Fuentes*/
+  
+@font-face {
+  font-family: BrixSans;
+  src: url('../../public/assets/fonts/BrixSansBlack.otf');
+}
+
+@font-face {
+  font-family: BrixSansRegular;
+  src: url('../assets/fonts/BrixSansRegular.otf');
+}
+
+
+h1.title {
+  font-family: BrixSans;
+}
+
+input, p, button {
+  font-family: BrixSansRegular;
+}
+
+button {
+  background-color: #fff;
+  color: #e90049;
+  text-transform: uppercase;
+  border:none;
+}
