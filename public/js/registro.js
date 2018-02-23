@@ -132,11 +132,11 @@ function createEvent(eventData) {
   var resource = {
     'summary': eventData.eventTitle,
     'start': {
-      'dateTime': new Date(eventData.date).to(),
+      'dateTime': new Date(eventData.date).toISOString(),
       'timezone': 'GTM-0500'
     },
     'end': {
-      'dateTime': new Date(eventData.endDate).toLocaleDateString(),
+      'dateTime': new Date(eventData.endDate).toISOString(),
       'timezone': 'GTM-0500'
     },
     'attendees': [
