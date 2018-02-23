@@ -11,17 +11,33 @@
 }
 
 
-h1.title {
+h2.title {
   font-family: BrixSans;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+
 }
 
+.vh100 {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
 input, p, button {
   font-family: BrixSansRegular;
 }
 
-button {
-  background-color: #fff;
-  color: #e90049;
+#addToCalendar, #signout-button {
+  background-color:#e90049 ;
+  color: #fff;
   text-transform: uppercase;
   border:none;
+}
+
+.logotipo {
+  padding: 1em;
+  width: 80%;
 }

@@ -5,6 +5,15 @@
 // b32fL6T5cwOdo5A67FsasKOT
 // API
 // AIzaSyD3UdXv-AuAkuoe8JIBawuDVQxqPxkkyT0
+/* Iniciar input picker */
+$('.datepicker').pickadate({
+  selectMonths: true, // Creates a dropdown to control month
+  selectYears: 15, // Creates a dropdown of 15 years to control year,
+  today: 'Today',
+  clear: 'Clear',
+  close: 'Ok',
+  closeOnSelect: false // Close upon selecting a date,
+});
 
 // Client ID and API key from the Developer Console
 var CLIENT_ID = '174387043472-mpubc53shtjju2jljruv1cft923md1gt.apps.googleusercontent.com';
@@ -23,7 +32,8 @@ function handleClientLoad() {
 
 var addButton = $('#addToCalendar');
 var signoutButton = $('#signout-button');
-addButton.on('click', function() {
+addButton.on('click', function(event) {
+  event.preventDefault();
   var userChoices = getUserInput();
   console.log(userChoices);
   if (userChoices)
@@ -34,16 +44,17 @@ addButton.on('click', function() {
 function getUserInput() {
   var date = $('#date').val();
   var endDate = $('#enddate').val();
-  var eventDesc = $('#event').val();
-
+  var eventTitle = $('#event').val();
+  var eventDes = $('#textarea1').val();
   // check input values, they should not be empty
-  if (date === '' || endDate === '' || eventDesc === '') {
+  if (date === '' || endDate === '' || eventTitle === '') {
     alert('All your input fields should have a meaningful value.');
     return;
   } else return {
     'date': date,
     'endDate': endDate,
-    'eventTitle': eventDesc
+    'eventTitle': eventTitle,
+    'eventDes': eventDes
   };
 }
 
@@ -130,6 +141,7 @@ function createEvent(eventData) {
   // First create resource that will be send to server.
   var resource = {
     'summary': eventData.eventTitle,
+    'description': eventData.eventDes,
     'start': {
       'dateTime': new Date(eventData.date).toISOString(),
       'timeZone': 'America/Lima'
@@ -139,8 +151,10 @@ function createEvent(eventData) {
       'timeZone': 'America/Lima'
     },
     'attendees': [
-      {'email': 'mpbperu@gmail.com'},
-      {'email': 'andrea19_93@hotmail.com'}
+      {'email': 'mpbperu@gmail.com'
+      },
+      {'email': 'deyel_99@hotmail.com'}
+
     ],
     'reminders': {
       'useDefault': false,

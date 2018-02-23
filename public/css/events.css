@@ -1,0 +1,68 @@
+@font-face {
+  font-family: BrixSans;
+  src: url('../assets/fonts/BrixSansBlack.otf');
+}
+  
+@font-face {
+  font-family: BrixSansRegular;
+  src: url('../assets/fonts/BrixSansRegular.otf');
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: BrixSans;
+}
+
+h1 {
+  font-family: BrixSans;
+  color: #ffffff;
+  font-size: 3rem;
+  padding-left: 2rem;
+}
+.bg-title {
+  background-color: #e90049;
+  margin: 0;
+  padding: 5rem 0;
+}
+.titleState {
+  font-size: 1.7rem;
+  color: rgb(168, 168, 168);
+  font-family: BrixSansRegular;
+  margin: 0 auto !important;
+  display: inline;
+}
+.card {
+  width: 75%;
+  margin: 2rem auto;
+  padding: 2.5rem;
+}
+.pad-no {
+  padding: 0 !important;
+  position: relative;
+}
+.estado {
+  font-size: 1.5rem;
+  padding: 2rem 0;
+  color: rgb(135, 134, 179);
+  font-family: BrixSansRegular;
+}
+.opcion {
+  font-size: 1.5rem;
+  padding: 2rem 0;
+  color: #e90049;
+  font-family: BrixSans;
+}
+.select {
+  display: block !important;
+  width: 50%;
+  margin: 0 auto;
+}
+.arrow {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
+}
