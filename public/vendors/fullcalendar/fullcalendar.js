@@ -346,7 +346,7 @@ function computeIsLeftRtlScrollbars() {
         left: 0,
         border: 0,
         padding: 0,
-        overflow: 'scroll',
+        'overflow-y': 'auto',
         direction: 'rtl'
     })
         .appendTo('body');
