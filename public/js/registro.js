@@ -132,10 +132,12 @@ function createEvent(eventData) {
   var resource = {
     'summary': eventData.eventTitle,
     'start': {
-      'dateTime': new Date(eventData.date).toISOString()
+      'dateTime': new Date(eventData.date).toISOString(),
+      'timeZone': 'America/Lima'
     },
     'end': {
-      'dateTime': new Date(eventData.endDate).toISOString()
+      'dateTime': new Date(eventData.endDate).toISOString(),
+      'timeZone': 'America/Lima'
     },
     'attendees': [
       {'email': 'mpbperu@gmail.com'},
@@ -157,7 +159,8 @@ function createEvent(eventData) {
   // create the request
   var request = gapi.client.calendar.events.insert({
     'calendarId': '626c8uffo3v8c4c46l6ctckmlc@group.calendar.google.com',
-    'resource': resource
+    'resource': resource,
+
   });
 
   // execute the request and do something with response
