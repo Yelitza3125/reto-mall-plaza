@@ -1,11 +1,39 @@
-// $(document).ready(function () {
-// Client ID
-// 23083249729-pin2cne0833qrijthhm0vsvut96qh9d8.apps.googleusercontent.com
-// Secret
-// b32fL6T5cwOdo5A67FsasKOT
-// API
-// AIzaSyD3UdXv-AuAkuoe8JIBawuDVQxqPxkkyT0
-/* Iniciar input picker */
+/*****Registro de Tareas**** */
+var config = {
+  apiKey: 'AIzaSyBS0K0yMCQO1H3DAkx1jojSpH3spvVMapM',
+  authDomain: 'mall-plaza-12cf6.firebaseapp.com',
+  databaseURL: 'https://mall-plaza-12cf6.firebaseio.com',
+  projectId: 'mall-plaza-12cf6',
+  storageBucket: 'mall-plaza-12cf6.appspot.com',
+  messagingSenderId: '23083249729'
+};
+firebase.initializeApp(config);
+
+// variables agregar
+const titleNew = $('#title-new');
+const dateNew = $('#date-new');
+const dateEndNew = $('#date-end-new');
+const descriptionNew = $('#description-new');
+const stateNew = $('#state-event-new');
+
+// Firebase
+let database = firebase.database();
+let eventsData = database.ref('tareas');
+
+// Varibales de insertar eventos
+// Obteniendo el último evento
+let lastEvent = '';
+
+eventsData.on('value', function (datos) {
+  lastEvent = datos.val().length;
+  localStorage.lastEvent = lastEvent; // guardando 
+})
+
+
+
+
+
+
 $('.datepicker').pickadate({
   selectMonths: true, // Creates a dropdown to control month
   selectYears: 15, // Creates a dropdown of 15 years to control year,
@@ -32,20 +60,24 @@ function handleClientLoad() {
 
 var addButton = $('#addToCalendar');
 var signoutButton = $('#signout-button');
+
 addButton.on('click', function(event) {
   event.preventDefault();
   var userChoices = getUserInput();
-  console.log(userChoices);
-  if (userChoices)
+  // 
+  
+  if (userChoices){
     createEvent(userChoices);
+    AddEventBD();
   $(location).attr('href', 'calendario.html');
+  }
 });
 
 function getUserInput() {
-  var date = $('#date').val();
-  var endDate = $('#enddate').val();
-  var eventTitle = $('#event').val();
-  var eventDes = $('#textarea1').val();
+  var date = $('#date-new').val();
+  var endDate = $('#date-end-new').val();
+  var eventTitle = $('#title-new').val();
+  var eventDes = $('#description-new').val();
   // check input values, they should not be empty
   if (date === '' || endDate === '' || eventTitle === '') {
     alert('All your input fields should have a meaningful value.');
@@ -147,13 +179,13 @@ function createEvent(eventData) {
       'timeZone': 'America/Lima'
     },
     'end': {
-      'dateTime': new Date(eventData.endDate).toISOString(),
+      'dateTime': new Date(eventData.endDate).toISOString() ,
       'timeZone': 'America/Lima'
     },
     'attendees': [
       {'email': 'mpbperu@gmail.com'
       },
-      {'email': 'deyel_99@hotmail.com'}
+      {'email': 'carlacentenor@hotmail.com'}
 
     ],
     'reminders': {
@@ -181,4 +213,32 @@ function createEvent(eventData) {
     console.log(resp);
     // alert("Your event was added to the calendar.");
   });
+}
+
+/**FUnción Agregar evento**/
+
+let id = parseInt(localStorage.getItem('lastEvent'));
+
+function AddEventBD(){
+  // obteniendo el valor id siguiente
+
+  let eventsDataNew = database.ref('tareas/' + id);
+
+  let dateStartNew = new Date(dateNew.val()).toISOString().substr(0,10);
+  let dateEnd = new Date(dateEndNew.val()).toISOString().substr(0,10);
+  eventsDataNew.set({
+    title: titleNew.val(),
+    start:  dateStartNew,
+    end:  dateEnd +' 24:00:00',
+    descripcion: descriptionNew.val(),
+    state: 1,
+    // state: localStorage.stateNew,
+    id: id,
+    color: '#FF6A80'
+
+  }, function () {
+    console.log('Se registro correctamente');
+   
+  });
+  
 }

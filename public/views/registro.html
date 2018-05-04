@@ -24,18 +24,18 @@
           <h2 class="title">Crear Evento</h2>
 
           <div class="input-field">
-            <input id="event" type="text" class="autocomplete">
+            <input id="title-new" type="text" class="autocomplete">
             <label for="event">Título Evento</label>
           </div>
           <div class="input-field">
-            <textarea id="textarea1" class="materialize-textarea"></textarea>
+            <input type="text" id="description-new" class="autocomplete">
             <label for="textarea1">Descripción</label>        
         </div>
         <div class="input-field">
-          <input type="text" id="date" class="datepicker" placeholder="Fecha de inicio">
+          <input type="date" id="date-new" class="datepicker" placeholder="Fecha de inicio">
         </div>
         <div class="input-field">
-          <input id="enddate" type="text" class="datepicker" placeholder="Fecha de fin">
+          <input id="date-end-new" type="date" class="datepicker" placeholder="Fecha de fin">
         </div>
         </div>
        
@@ -46,9 +46,13 @@
       </form>
     </div>
   </div>
-
+  <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <!-- <script src='../vendors/fullcalendar/lib/moment.min.js'></script>
+  <script src='../vendors/fullcalendar/fullcalendar.js'></script>
+  <script src='../vendors/fullcalendar/locale-all.js'></script>
+  <script src='../vendors/fullcalendar/gcal.js'></script> -->
   <script src="../js/registro.js"></script>
   <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()">
   </script>
