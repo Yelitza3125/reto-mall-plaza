@@ -31,15 +31,21 @@ eventsData.on('value', function (datos) {
 
 
 
-
-
-
 $('.datepicker').pickadate({
+  monthsFull: [ 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre' ],
+  monthsShort: [ 'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dec' ],
+  weekdaysFull: [ 'Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado' ],
+  weekdaysShort: [ 'Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab' ],
+  labelMonthNext: 'Mes siguiente',
+  labelMonthPrev: 'Mes anterior',
+  labelMonthSelect: 'Selecciona un mes',
+  labelYearSelect: 'Selecciona un año',
+  weekdaysLetter: [ 'D', 'L', 'M', 'M', 'J', 'V', 'S' ],
   selectMonths: true, // Creates a dropdown to control month
   selectYears: 15, // Creates a dropdown of 15 years to control year,
-  today: 'Today',
-  clear: 'Clear',
-  close: 'Ok',
+  today: 'Hoy',
+  clear: 'Limpiar',
+  close: 'Cerrar',
   closeOnSelect: false // Close upon selecting a date,
 });
 
