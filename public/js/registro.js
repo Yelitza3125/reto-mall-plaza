@@ -29,7 +29,11 @@ eventsData.on('value', function (datos) {
   localStorage.lastEvent = lastEvent; // guardando 
 })
 
-
+/* Variables para validar no sea menor a fecha actual */
+let dayA = new Date();
+let yearv = dayA.getFullYear();
+let monthv = dayA.getMonth();
+let dayv = dayA.getDate()-1;
 
 $('.datepicker').pickadate({
   monthsFull: [ 'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre' ],
@@ -41,13 +45,33 @@ $('.datepicker').pickadate({
   labelMonthSelect: 'Selecciona un mes',
   labelYearSelect: 'Selecciona un año',
   weekdaysLetter: [ 'D', 'L', 'M', 'M', 'J', 'V', 'S' ],
+  disable: [{
+    from: [2010,5,12], to: [yearv,monthv,dayv]
+   }
+  ],
   selectMonths: true, // Creates a dropdown to control month
   selectYears: 15, // Creates a dropdown of 15 years to control year,
   today: 'Hoy',
   clear: 'Limpiar',
   close: 'Cerrar',
-  closeOnSelect: false // Close upon selecting a date,
+  closeOnSelect: false, // Close upon selecting a date
+  onSelect: function()
+  {
+    console.log('alllll');
+  }
 });
+/*
+$('#date-new').on('change', function() {
+  let valorcito = ($('#date-new').pickadate('picker').get('value')).getDate();
+  console.log(valorcito);
+  $('#date-end-new').pickadate({
+    disable: [{
+      from: [2010,5,12], to: [valorcito]
+    }]
+  })
+})
+*/
+
 
 // Client ID and API key from the Developer Console
 var CLIENT_ID = '174387043472-mpubc53shtjju2jljruv1cft923md1gt.apps.googleusercontent.com';
