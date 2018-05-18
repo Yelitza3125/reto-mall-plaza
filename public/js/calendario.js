@@ -136,7 +136,7 @@ function stateColor(state) {
     return '#006400'
   }
   if (state == 6) {
-    return '#2F5AC6'
+    return '#3399FF'
   }
   if (state == 7) {
     return '#CCCCCC'

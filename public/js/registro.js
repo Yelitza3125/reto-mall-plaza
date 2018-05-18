@@ -264,7 +264,7 @@ function AddEventBD(){
     state: 7,
     // state: localStorage.stateNew,
     id: id,
-    color: '#FF6A80'
+    color: '#CCCCCC'
 
   }, function () {
     console.log('Se registro correctamente');
