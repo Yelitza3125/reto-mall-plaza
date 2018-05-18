@@ -121,10 +121,25 @@ var config = {
   // estados por colores  1 :orden de compra  2:cotización
   function stateColor(state) {
     if (state == 1) {
-      return '#FF6A80'
+      return '#FF0045'
     }
     if (state == 2) {
-      return '#A0DB8E'
+      return '#FF9702'
+    }
+    if (state == 3) {
+      return '#FF9702'
+    }
+    if (state == 4) {
+      return '#00C11A'
+    }
+    if (state == 5) {
+      return '#006400'
+    }
+    if (state == 6) {
+      return '#2F5AC6'
+    }
+    if (state == 7) {
+      return '#CCCCCC'
     }
   }
   
