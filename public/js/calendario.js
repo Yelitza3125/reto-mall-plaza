@@ -19,7 +19,7 @@ const stateEdit = $('#state-event-edit');
 let idSelect = '';
 // Firebase
 let database = firebase.database();
-let eventsData = database.ref('2018/Mantenimiento');
+let eventsData = database.ref('Bellavista/2018/Mantenimiento');
 
 
 
@@ -79,7 +79,7 @@ if ($(window).width() <= 600) {
 // Actualizar evento
 $('#update').on('click', function () {
   let idUpdate = localStorage.getItem('idSelect')
-  var eventUpdate = firebase.database().ref(`2018/Mantenimiento/${idUpdate}`);
+  var eventUpdate = firebase.database().ref(`Bellavista/2018/Mantenimiento/${idUpdate}`);
   eventUpdate.update({
     title: titleEdit.val(),
     start: dateEdit.val(),

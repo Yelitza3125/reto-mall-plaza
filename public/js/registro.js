@@ -18,7 +18,7 @@ const stateNew = $('#state-event-new');
 
 // Firebase
 let database = firebase.database();
-let eventsData = database.ref('2018/Mantenimiento');
+let eventsData = database.ref('Bellavista/2018/Mantenimiento');
 
 // Varibales de insertar eventos
 // Obteniendo el último evento
@@ -252,7 +252,7 @@ let id = parseInt(localStorage.getItem('lastEvent'));
 function AddEventBD(){
   // obteniendo el valor id siguiente
 
-  let eventsDataNew = database.ref('2018/Mantenimiento/' + id);
+  let eventsDataNew = database.ref('Bellavista/2018/Mantenimiento/' + id);
 
   let dateStartNew = new Date(dateNew.val()).toISOString().substr(0,10);
   let dateEnd = new Date(dateEndNew.val()).toISOString().substr(0,10);

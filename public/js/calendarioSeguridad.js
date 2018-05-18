@@ -19,7 +19,7 @@ var config = {
   let idSelect = '';
   // Firebase
   let database = firebase.database();
-  let eventsData = database.ref('2018/Seguridad');
+  let eventsData = database.ref('Bellavista/2018/Seguridad');
   
   
   
@@ -79,7 +79,7 @@ var config = {
   // Actualizar evento
   $('#update').on('click', function () {
     let idUpdate = localStorage.getItem('idSelectSecurity')
-    var eventUpdate = firebase.database().ref(`2018/Seguridad/${idUpdate}`);
+    var eventUpdate = firebase.database().ref(`Bellavista/2018/Seguridad/${idUpdate}`);
     eventUpdate.update({
       title: titleEdit.val(),
       start: dateEdit.val(),

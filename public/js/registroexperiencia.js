@@ -18,7 +18,7 @@ var config = {
   
   // Firebase
   let database = firebase.database();
-  let eventsData = database.ref('Bellavista/2018/Seguridad');
+  let eventsData = database.ref('Bellavista/2018/Experiencia');
   
   // Varibales de insertar eventos
   // Obteniendo el último evento
@@ -26,7 +26,7 @@ var config = {
   
   eventsData.on('value', function (datos) {
     lastEvent = datos.val().length;
-    localStorage.lastEventSecurity = lastEvent; // guardando 
+    localStorage.lastEventExperience = lastEvent; // guardando 
   })
   
   /* Variables para validar no sea menor a fecha actual */
@@ -99,7 +99,7 @@ var config = {
     if (userChoices){
       createEvent(userChoices);
       AddEventBD();
-    $(location).attr('href', 'seguridad.html');
+    $(location).attr('href', 'experiencia.html');
     }
   });
   
@@ -174,7 +174,7 @@ var config = {
    */
   function listUpcomingEvents() {
     gapi.client.calendar.events.list({
-      'calendarId': '1pab32lka5ipkjhmhha9vo1a60@group.calendar.google.com',
+      'calendarId': 'coagdsh58j833j7gpeipjbmvb8@group.calendar.google.com',
       'timeMin': (new Date()).toISOString(),
       'showDeleted': false,
       'singleEvents': true,
@@ -233,7 +233,7 @@ var config = {
     console.log(resource.start.dayTime);
     // create the request
     var request = gapi.client.calendar.events.insert({
-      'calendarId': '1pab32lka5ipkjhmhha9vo1a60@group.calendar.google.com',
+      'calendarId': 'coagdsh58j833j7gpeipjbmvb8@group.calendar.google.com',
       'resource': resource,
   
     });
@@ -247,12 +247,12 @@ var config = {
   
   /**FUnción Agregar evento**/
   
-  let id = parseInt(localStorage.getItem('lastEventSecurity'));
+  let id = parseInt(localStorage.getItem('lastEventExperience'));
   
   function AddEventBD(){
     // obteniendo el valor id siguiente
   
-    let eventsDataNew = database.ref('Bellavista/2018/Seguridad/' + id);
+    let eventsDataNew = database.ref('Bellavista/2018/Experiencia/' + id);
   
     let dateStartNew = new Date(dateNew.val()).toISOString().substr(0,10);
     let dateEnd = new Date(dateEndNew.val()).toISOString().substr(0,10);
