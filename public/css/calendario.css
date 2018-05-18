@@ -24,6 +24,55 @@ h2 {
   background-color: #e90049;
 }
 
+
+.box-detail{
+  background-color: #ebebeb;
+}
+
+.box-detail h1{
+  font-weight: 800
+}
+.btn-detail{
+  background-color: #e90049;
+  color: white
+}
+
+.btn-detail:hover{
+  color: white;
+  background-color: #ca0544;
+}
+
+nav{
+  background: rgba(233,0,74,1);
+background: -moz-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(233,0,74,1)), color-stop(100%, rgba(244,127,164,1)));
+background: -webkit-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+background: -o-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+background: -ms-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+background: linear-gradient(to right, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9004a', endColorstr='#f47fa4', GradientType=1 );
+height: 65px;
+}
+
+.menu ul li{
+ 
+  list-style: none;
+  padding: 15px 50px;
+  color: white;
+  font-size: 22px;
+  float: right;
+ 
+}
+
+.menu ul li a{
+  text-decoration: none;
+  color: white
+}
+
+.menu ul li a:hover{
+color: white
+}
+
 @media (min-width: 601px) {
   h2 {
     font-size: 3em;

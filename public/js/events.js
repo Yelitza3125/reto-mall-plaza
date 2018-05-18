@@ -9,7 +9,7 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
-var events = database.ref('tareas');
+var events = database.ref('Bellavista/2018/Mantenimiento');
 var box = $('.box-events');
 events.on('value', function(datos) {
   data = datos.val();
@@ -18,15 +18,7 @@ events.on('value', function(datos) {
     `<div class="card center-align">
       <p class="center-align titleState">${valor.title}</p>
       <p class="opcion">Estado: <span class="estado">Pendiente</span></p>
-      <select class="select list" name="estado">
-        <option data-stage='Pendiente' value="Pendiente">Pendiente</option>
-        <option data-stage='Cotización' value="Cotización">Cotización</option>
-        <option data-stage='OC proceso' value="OC proceso">OC proceso</option>
-        <option data-stage='Revisión de informe' value="Revisión de informe">Revisión informe</option>
-        <option data-stage='HES' value="Hes">HES</option>
-        <option data-stage='Correcciones' value="Correcciones">Correcciones</option>
-        <option data-stage='Finalizado' value="Finalizado">Finalizado</option>
-      </select>
+     
     </div>`;
     box.append(template);
 
