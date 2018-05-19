@@ -261,7 +261,7 @@ var config = {
       start:  dateStartNew,
       end:  dateEnd +' 24:00:00',
       descripcion: descriptionNew.val(),
-      state: 7,
+      state: '7',
       // state: localStorage.stateNew,
       id: id,
       color: '#CCCCCC'
