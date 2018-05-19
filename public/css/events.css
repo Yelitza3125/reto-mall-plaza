@@ -8,11 +8,65 @@
   src: url('../assets/fonts/BrixSansRegular.otf');
 }
 
+:root{
+  --mall:#e90049;
+}
+
 .box-month{
-  background-color: #e90049;
+  background-color: var(--mall);
   color: white;
   width: 150px;
   text-align: center;
   border-radius: 5px;
   font-size: 24px
+}
+
+.select-wrapper input.select-dropdown:focus{
+  border-bottom: 1px solid var(--mall);
+}
+
+.dropdown-content li>a, .dropdown-content li>span{
+  color: var(--mall);
+}
+
+.radio-btn ul li {
+  float: left;
+  padding-right: 40px
+}
+
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after{
+background-color: var(--mall)
+}
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after{
+  border: 2px solid var(--mall)
+}
+
+[type="radio"]:not(:checked)+span, [type="radio"]:checked+span{
+  padding-left:25px
+}
+
+.radio-btn{
+  overflow: auto
+}
+
+.number-detail{
+  color: var(--mall);
+  font-weight: 900;
+  font-size: 20px
+}
+
+.title-state{
+  font-weight: 900;
+  padding-right: 20px
+}
+
+.end{
+  padding-left: 65px
+}
+
+.box-state-detail{
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 40px
 }

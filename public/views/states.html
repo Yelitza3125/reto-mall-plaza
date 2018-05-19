@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
     crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
   <link rel="stylesheet" href="../css/calendario.css">
   <link rel="stylesheet" href="../css/events.css">
@@ -17,10 +17,10 @@
 
 <body>
   <header class="mb-3">
-    <nav class="container-fluid">
+    <nav class="">
       <div class="row">
-        <div class="col-4"></div>
-        <div class="col-8 menu ">
+        <div class="col s4"></div>
+        <div class="col s8 menu ">
           <ul>
             <li>
               <a href="#">Salir</a>
@@ -41,59 +41,119 @@
   </header>
   <section class="container">
     <div>
-      <h1>Área de Mantenimiento</h1>
+      <h3>Área de Mantenimiento</h3>
     </div>
     <div class="row">
-      <div class="col-5">
-        <div class="form-group">
-          <select id="month" name="month" class="form-control" />
-          <option selected hidden>Mes</option>
-          <option value="13">Todas</option>
-          <option value="01">Enero</option>
-          <option value="02">Febrero</option>
-          <option value="03">Marzo</option>
-          <option value="04">Abril</option>
-          <option value="05">Mayo</option>
-          <option value="06">Junio</option>
-          <option value="07">Julio</option>
-          <option value="08">Agosto</option>
-          <option value="09">Septiembre</option>
-          <option value="10">Octubre</option>
-          <option value="11">Noviembre</option>
-          <option value="12">Diciembre</option>
+      <div class="col s5">
+        <div>
+          <select>
+            <option selected hidden>Mes</option>
+            <option value="13">Todas</option>
+            <option value="01">Enero</option>
+            <option value="02">Febrero</option>
+            <option value="03">Marzo</option>
+            <option value="04">Abril</option>
+            <option value="05">Mayo</option>
+            <option value="06">Junio</option>
+            <option value="07">Julio</option>
+            <option value="08">Agosto</option>
+            <option value="09">Septiembre</option>
+            <option value="10">Octubre</option>
+            <option value="11">Noviembre</option>
+            <option value="12">Diciembre</option>
 
           </select>
         </div>
 
       </div>
-      <div class="col-5">
-        <div class="form-group">
-          <select id="year" name="year" class="form-control" />
-          <option selected hidden>Año</option>
-          <option value="2020">2020</option>
-          <option value="2019">2019</option>
-          <option value="2018">2018</option>
+      <div class="col s5">
+        <div class="">
+          <select class="form-control #f50057 pink accent-3">
+            <option selected hidden>Año</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
 
           </select>
         </div>
-        
+
       </div>
-      <div class="col-2">
-          <button><span class="fas fa-search"></span></button>
-        </div>
+      <div class="col s2">
+        <button class="btn btn-detail">
+          <span class="fas fa-search"></span>
+        </button>
+      </div>
     </div>
 
 
-    <div>
-      <div class="box-month">
-        <p>Mayo 2018</p>
-      </div>
+    <!-- Radio Button -->
+    <div class="radio-btn">
+      <ul>
+
+        <li>
+          <label>
+            <input name="group1" type="radio" checked />
+            <span>Cotización</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input name="group1" type="radio" checked />
+            <span>Orden de Compra</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input name="group1" type="radio" checked />
+            <span>Proceso</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input name="group1" type="radio" checked />
+            <span>Revision</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input name="group1" type="radio" checked />
+            <span>Finalizado</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input name="group1" type="radio" checked />
+            <span>Programado</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input name="group1" type="radio" checked />
+            <span>Fuera de Fecha</span>
+          </label>
+        </li>
+        <li>
+          <label>
+            <input name="group1" type="radio" checked />
+            <span>Todas</span>
+          </label>
+        </li>
+
+      </ul>
+
+
     </div>
   </section>
+  <div class="container">
+    <div class="box-events "></div>
+  </div>
+
+
 
 
 
   <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
   <script src="../js/events.js"></script>
 </body>

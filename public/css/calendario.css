@@ -57,16 +57,17 @@ height: 65px;
 .menu ul li{
  
   list-style: none;
-  padding: 15px 50px;
+  padding: 0px 50px;
   color: white;
-  font-size: 22px;
+ 
   float: right;
  
 }
 
 .menu ul li a{
   text-decoration: none;
-  color: white
+  color: white;
+  font-size: 20px
 }
 
 .menu ul li a:hover{
