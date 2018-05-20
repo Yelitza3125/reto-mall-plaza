@@ -21,10 +21,13 @@ let monthSelect = '';
 let arrayResult = [];
 
 const searchMonthYear = $('#search');
-
+let areaSelect = localStorage.getItem('area') ;
+const titleArea = $('#title-area');
+titleArea.text(areaSelect);
 
 var database = firebase.database();
-var events = database.ref('Bellavista/2018/Mantenimiento');
+
+var events = database.ref(`Bellavista/2018/${areaSelect}`);
 var box = $('.box-events');
 events.on('value', function (datos) {
   data = datos.val();
@@ -41,7 +44,23 @@ events.on('value', function (datos) {
 
   });
 
-
+  $('.btn-radio').on('change', function (e) {
+    box.empty();
+    events.on('value', function (datos) {
+      data = datos.val();
+      $.each(data, function (indice, valor) {
+        if (e.currentTarget.value === valor.state) {
+          renderInfo(valor, indice);
+        } 
+        if (e.currentTarget.value == 8) {
+  
+          renderInfo(valor, indice);
+        }
+  
+  
+      })
+    })
+  })
 
 });
 
@@ -109,19 +128,7 @@ searchMonthYear.on('click', function () {
 })
 
 
-$('.btn-radio').on('change', function (e) {
-  box.empty();
-  events.on('value', function (datos) {
-    data = datos.val();
-    $.each(data, function (indice, valor) {
-      if (e.currentTarget.value === valor.state) {
-        renderInfo(valor, indice);
-      }
 
-
-    })
-  })
-})
 
 
 

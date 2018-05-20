@@ -57,9 +57,8 @@ height: 65px;
 .menu ul li{
  
   list-style: none;
-  padding: 0px 50px;
+  padding: 0px 25px;
   color: white;
- 
   float: right;
  
 }
@@ -72,6 +71,18 @@ height: 65px;
 
 .menu ul li a:hover{
 color: white
+}
+
+.responsive-img-logo{
+  width: 230px;
+  margin-top:3px
+}
+
+.icon-mant{
+  color: #e90049;
+  font-size: 30px;
+  padding-top: 5px;
+  padding-right: 5px;
 }
 
 @media (min-width: 601px) {
