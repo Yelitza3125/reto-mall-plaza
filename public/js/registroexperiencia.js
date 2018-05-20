@@ -261,10 +261,10 @@ var config = {
       start:  dateStartNew,
       end:  dateEnd +' 24:00:00',
       descripcion: descriptionNew.val(),
-      state: 1,
+      state: '7',
       // state: localStorage.stateNew,
       id: id,
-      color: '#FF6A80'
+      color: '#CCCCCC'
   
     }, function () {
       console.log('Se registro correctamente');

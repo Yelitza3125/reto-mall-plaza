@@ -8,61 +8,65 @@
   src: url('../assets/fonts/BrixSansRegular.otf');
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  font-family: BrixSans;
+:root{
+  --mall:#e90049;
 }
 
-h1 {
-  font-family: BrixSans;
-  color: #ffffff;
-  font-size: 3rem;
-  padding-left: 2rem;
+.box-month{
+  background-color: var(--mall);
+  color: white;
+  width: 150px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 24px
 }
-.bg-title {
-  background-color: #e90049;
-  margin: 0;
-  padding: 5rem 0;
+
+.select-wrapper input.select-dropdown:focus{
+  border-bottom: 1px solid var(--mall);
 }
-.titleState {
-  font-size: 1.7rem;
-  color: rgb(168, 168, 168);
-  font-family: BrixSansRegular;
-  margin: 0 auto !important;
-  display: inline;
+
+.dropdown-content li>a, .dropdown-content li>span{
+  color: var(--mall);
 }
-.card {
-  width: 75%;
-  margin: 2rem auto;
-  padding: 2.5rem;
+
+.radio-btn ul li {
+  float: left;
+  padding-right: 40px
 }
-.pad-no {
-  padding: 0 !important;
-  position: relative;
+
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after{
+background-color: var(--mall)
 }
-.estado {
-  font-size: 1.5rem;
-  padding: 2rem 0;
-  color: rgb(135, 134, 179);
-  font-family: BrixSansRegular;
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after{
+  border: 2px solid var(--mall)
 }
-.opcion {
-  font-size: 1.5rem;
-  padding: 2rem 0;
-  color: #e90049;
-  font-family: BrixSans;
+
+[type="radio"]:not(:checked)+span, [type="radio"]:checked+span{
+  padding-left:25px
 }
-.select {
-  display: block !important;
-  width: 50%;
-  margin: 0 auto;
+
+.radio-btn{
+  overflow: auto
 }
-.arrow {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  font-size: 3rem;
-  font-weight: bold;
-  color: #ffffff;
+
+.number-detail{
+  color: var(--mall);
+  font-weight: 900;
+  font-size: 20px
+}
+
+.title-state{
+  font-weight: 900;
+  padding-right: 20px
+}
+
+.end{
+  padding-left: 65px
+}
+
+.box-state-detail{
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 40px
 }

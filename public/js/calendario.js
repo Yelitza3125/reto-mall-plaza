@@ -118,13 +118,29 @@ function clearForm() {
   stateNew.val('0');
 }
  
-// estados por colores  1 :orden de compra  2:cotización
+// estados por colores  1 :Fuera de Fecha  2:cotización  3:OC   4: Proceso 5 : revision   6: Finalizado  7:Programado
 function stateColor(state) {
   if (state == 1) {
-    return '#FF6A80'
+    return '#FF0045'
   }
   if (state == 2) {
-    return '#A0DB8E'
+    return '#FF9702'
   }
+  if (state == 3) {
+    return '#FF9702'
+  }
+  if (state == 4) {
+    return '#00C11A'
+  }
+  if (state == 5) {
+    return '#006400'
+  }
+  if (state == 6) {
+    return '#3399FF'
+  }
+  if (state == 7) {
+    return '#CCCCCC'
+  }
+
 }
 
