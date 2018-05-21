@@ -24,17 +24,18 @@ h2 {
   background-color: #e90049;
 }
 
-
-.box-detail{
-  background-color: #ebebeb;
+.box-detail-title{
+background-color: #e7e6e6;
 }
 
-.box-detail h1{
+.box-detail-title h1{
   font-weight: 800
 }
 .btn-detail{
   background-color: #e90049;
-  color: white
+  color: white;
+  position: relative;
+  bottom: 7px
 }
 
 .btn-detail:hover{
@@ -98,3 +99,4 @@ color: white
     min-height: 60vh;
   }
 } */
+

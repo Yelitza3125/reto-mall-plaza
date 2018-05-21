@@ -7,7 +7,13 @@ var config = {
     messagingSenderId: '23083249729'
   };
   firebase.initializeApp(config);
-  
+  // Obteniendo el mes actual
+let today = new Date();
+let thisMonth = today.getMonth() + 1;
+let formatDay = new Date(today).toISOString().substr(0, 10);
+
+
+
   
   
   // variables editar
@@ -22,7 +28,86 @@ var config = {
   let eventsData = database.ref('Bellavista/2018/Experiencia');
   
   
-  
+
+// Revisar estados
+
+
+let resultMonth = [];
+let deadLine = 0;
+
+
+//Verificar si hay tareas fuera de fechas al cargar la página
+eventsData.on('value', function (datos) {
+  let dataResult = datos.val();
+
+  dataResult.forEach(element => {
+    if ((element.start).slice(5, 7) == thisMonth) {
+      resultMonth.push(element);
+    }
+
+  });
+
+  resultMonth.forEach(element => {
+    if ((element.start == formatDay && element.state < 4) || (element.start == formatDay && element.state == 7) || (element.start < formatDay && element.state < 4) || (element.start < formatDay && element.state == 7)) {
+      deadLine++;
+
+    }
+  })
+  localStorage.deadLineExp = deadLine;
+})
+
+
+
+
+
+// Mostrar alerta de tareas fuera de fechas
+if (localStorage.getItem('deadLineExp') > 0) {
+  $('#alert').empty();
+  let templateAlert = `<div class="alert alert-danger" role="alert">
+  <i class="fas fa-exclamation-triangle"></i><span> Existen tareas fuera de fecha</span> <button class="btn btn-detail float-right" id="btn-mall"> Mostrar</button>
+</div>`;
+  $('#alert').append(templateAlert);
+  $('#btn-mall').on('click', function () { // Boton que cambia de estado a fuera de fecha 
+    eventsData.on('value', function (datos) {
+      let dataResult = datos.val();
+
+      dataResult.forEach(element => {
+        if ((element.start).slice(5, 7) == thisMonth) {
+          resultMonth.push(element);
+        }
+
+      });
+
+      resultMonth.forEach(element => {
+        if ((element.start == formatDay && element.state < 4) || (element.start == formatDay && element.state == 7) || (element.start < formatDay && element.state < 4) || (element.start < formatDay && element.state == 7)) {
+          
+          var eventUpdate = firebase.database().ref(`Bellavista/2018/Experiencia/${element.id}`);
+          eventUpdate.update({
+
+            state: "1",
+            color: "#FF0045"
+
+          });
+        }
+      })
+
+    })
+    $(location).attr('href', 'experiencia.html');
+  })
+} if(localStorage.getItem('deadLineExp') == 0) {
+  $('#alert').empty();
+  let templateAlert = `<div class="alert alert-success" role="alert">
+  <i class="far fa-check-circle"></i><span> Tareas dentro de fecha</span> 
+</div>`;
+  $('#alert').append(templateAlert);
+}
+// 
+
+
+
+
+
+  // Cargar datos al calendario
   
   
   eventsData.on('value', function (datos) {
@@ -95,6 +180,11 @@ var config = {
     $(location).attr('href', 'experiencia.html'); // recargar la pagina
     $('#modal-events').modal('toggle');
   });
+
+
+
+
+
   
   // FUnciones globales
   
@@ -127,7 +217,7 @@ var config = {
       return '#FF9702'
     }
     if (state == 3) {
-      return '#FF9702'
+      return '#FFDB00'
     }
     if (state == 4) {
       return '#00C11A'
