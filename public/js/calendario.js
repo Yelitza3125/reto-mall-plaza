@@ -8,6 +8,12 @@ var config = {
 };
 firebase.initializeApp(config);
 
+// Obteniendo el mes actual
+let today = new Date();
+let thisMonth = today.getMonth() + 1;
+let formatDay = new Date(today).toISOString().substr(0, 10);
+
+
 
 
 // variables editar
@@ -50,7 +56,7 @@ eventsData.on('value', function (datos) {
 
 
     }
-    
+
   });
 });
 
@@ -83,18 +89,90 @@ $('#update').on('click', function () {
   eventUpdate.update({
     title: titleEdit.val(),
     start: dateEdit.val(),
-    end: dateEndEdit.val() +' 24:00:00',
+    end: dateEndEdit.val() + ' 24:00:00',
     descripcion: descriptionEdit.val(),
     state: localStorage.stateEdit,
     color: stateColor(localStorage.stateEdit)
 
   });
   $('#calendar').fullCalendar('refetchEvents');
-
+ 
 
   $(location).attr('href', 'calendario.html'); // recargar la pagina
   $('#modal-events').modal('toggle');
 });
+
+let resultMonth = [];
+let deadLine = 0;
+
+
+//Verificar si hay tareas fuera de fechas al cargar la página
+eventsData.on('value', function (datos) {
+  let dataResult = datos.val();
+
+  dataResult.forEach(element => {
+    if ((element.start).slice(5, 7) == thisMonth) {
+      resultMonth.push(element);
+    }
+
+  });
+
+  resultMonth.forEach(element => {
+    if ((element.start == formatDay && element.state < 4) || (element.start == formatDay && element.state == 7) || (element.start < formatDay && element.state < 4) || (element.start < formatDay && element.state == 7)) {
+      deadLine++;
+
+    }
+  })
+  localStorage.deadLineMan = deadLine;
+})
+
+
+
+
+
+// Mostrar alerta de tareas fuera de fechas
+if (localStorage.getItem('deadLineMan') > 0) {
+  $('#alert').empty();
+  let templateAlert = `<div class="alert alert-danger" role="alert">
+  <i class="fas fa-exclamation-triangle"></i><span> Existen tareas fuera de fecha</span> <button class="btn btn-detail float-right" id="btn-mall"> Mostrar</button>
+</div>`;
+  $('#alert').append(templateAlert);
+  $('#btn-mall').on('click', function () { // Boton que cambia de estado a fuera de fecha 
+    eventsData.on('value', function (datos) {
+      let dataResult = datos.val();
+
+      dataResult.forEach(element => {
+        if ((element.start).slice(5, 7) == thisMonth) {
+          resultMonth.push(element);
+        }
+
+      });
+
+      resultMonth.forEach(element => {
+        if ((element.start == formatDay && element.state < 4) || (element.start == formatDay && element.state == 7) || (element.start < formatDay && element.state < 4) || (element.start < formatDay && element.state == 7)) {
+          deadLine++;
+          var eventUpdate = firebase.database().ref(`Bellavista/2018/Mantenimiento/${element.id}`);
+          eventUpdate.update({
+
+            state: "1",
+            color: "#FF0045"
+
+          });
+        }
+      })
+
+    })
+    $(location).attr('href', 'calendario.html');
+  })
+} if(localStorage.getItem('deadLineMan') == 0) {
+  $('#alert').empty();
+  let templateAlert = `<div class="alert alert-success" role="alert">
+  <i class="far fa-check-circle"></i><span> Tareas dentro de fecha</span> 
+</div>`;
+  $('#alert').append(templateAlert);
+}
+
+
 
 // FUnciones globales
 
@@ -117,7 +195,7 @@ function clearForm() {
   descriptionNew.val('');
   stateNew.val('0');
 }
- 
+
 // estados por colores  1 :Fuera de Fecha  2:cotización  3:OC   4: Proceso 5 : revision   6: Finalizado  7:Programado
 function stateColor(state) {
   if (state == 1) {
@@ -127,7 +205,7 @@ function stateColor(state) {
     return '#FF9702'
   }
   if (state == 3) {
-    return '#FF9702'
+    return '#FFDB00'
   }
   if (state == 4) {
     return '#00C11A'
@@ -143,4 +221,3 @@ function stateColor(state) {
   }
 
 }
-
