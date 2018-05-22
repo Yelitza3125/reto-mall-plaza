@@ -30,8 +30,7 @@
 }
 
 .radio-btn ul li {
-  float: left;
-  padding-right: 40px
+  width: 100%;
 }
 
 [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after{
@@ -46,7 +45,8 @@ background-color: var(--mall)
 }
 
 .radio-btn{
-  overflow: auto
+  overflow: auto;
+  padding-left: 2rem;
 }
 
 .number-detail{
@@ -68,5 +68,66 @@ background-color: var(--mall)
   color: white;
   text-align: center;
   padding: 10px;
-  margin-top: 40px
+  margin-top: 40px;
+  border: 8px solid white;
+  box-sizing: border-box;
+}
+
+/* states */
+.style-title {
+  background-color: #e7e6e6;
+  padding: 1rem 2rem;
+  margin-top: 1.5rem;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+  align-content: stretch;
+  width: 100%;
+}
+
+[type="checkbox"].filled-in:checked+span:not(.lever):after {
+  border: 2px solid var(--mall);
+  background-color: var(--mall);
+}
+
+[type="checkbox"].filled-in:not(:checked)+span:not(.lever):after {
+  background-color: transparent;
+  border: 2px solid var(--mall);
+}
+
+.btn-excel {
+  background-color: var(--mall);
+}
+
+.btn-excel:hover {
+  background-color: #333;
+}
+
+.box-mes {
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.box-filters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: stretch;
+  padding: 1rem;
+}
+
+td, th {
+  text-align: center;
+}
+
+th {
+  background-color: #e7e6e6;
+  border-right: 2px solid white;
+  border-bottom: 1rem solid white;
+  color: #333;
 }

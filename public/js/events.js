@@ -46,6 +46,16 @@ events.on('value', function (datos) {
 
   $('.btn-radio').on('change', function (e) {
     box.empty();
+    var template =
+      ` <tr>
+          <th>Numero</th>
+          <th>Titulo</th>
+          <th>Descripción</th>
+          <th>Inicio</th>
+          <th>Fin</th>
+          <th>Estado</th>
+        </tr>`;
+    box.append(template);
     events.on('value', function (datos) {
       data = datos.val();
       $.each(data, function (indice, valor) {
@@ -83,6 +93,16 @@ year.on('change', function () {
 searchMonthYear.on('click', function () {
   arrayResult = [];
   box.empty();
+  var template =
+  ` <tr>
+      <th>Numero</th>
+      <th>Titulo</th>
+      <th>Descripción</th>
+      <th>Inicio</th>
+      <th>Fin</th>
+      <th>Estado</th>
+    </tr>`;
+  box.append(template);
   if (monthSelect && yearSelect) {
     events.on('value', function (datos) {
       data = datos.val();
@@ -107,6 +127,16 @@ searchMonthYear.on('click', function () {
       $('.btn-radio').on('change', function (e) {
 
         box.empty();
+        var template =
+        ` <tr>
+            <th>Numero</th>
+            <th>Titulo</th>
+            <th>Descripción</th>
+            <th>Inicio</th>
+            <th>Fin</th>
+            <th>Estado</th>
+          </tr>`;
+        box.append(template);
         $.each(arrayResult, function (indice, valor) {
           if (e.currentTarget.value === valor.state) {
             renderInfo(valor, indice);
@@ -164,26 +194,45 @@ function nameState(value) {
 
 function renderInfo(valor, indice) {
   var template =
-    `<div class="row card #eeeeee grey lighten-3">
-    <div class="col s1 center-align number-detail" >
-    <p> ${indice+1}.</p>
-    </div>
-    <div class="col s2">
-
-      <p><span class="center-align title-state">Título :</span></p>
-      <p><span class="center-align title-state">Descripción :</span></p>
-      <p><span class="center-align title-state">Inicio :</span></p>
-      
-    </div>
-    <div class="col s6">
-    <p><span>${valor.title}</span></p>
-    <p><span>${valor.descripcion}</span></p>
-    <p><span>${valor.start}</span><span class="center-align title-state end">Fin :</span><span>${valor.end}</span></p>
-    </div>
-    <div class="col s3" >
-    <div class="box-state-detail" style="background-color:${valor.color};">${nameState(valor.state)}</di>
-
-    </div> 
-    </div>`;
+    `<tr>
+          <td>${indice+1}</td>
+          <td>${valor.title}</td>
+          <td>${valor.descripcion}</td>
+          <td>${valor.start}</td>
+          <td>${valor.end}</td>
+          <td class="box-state-detail" style="background-color:${valor.color}; margin:0.5rem;">${nameState(valor.state)}</td>
+      </tr>`;
   box.append(template);
+}
+
+// export to excel
+function exportTableToExcel(tableID, filename = ''){
+  var downloadLink;
+  var dataType = 'application/vnd.ms-excel';
+  var tableSelect = document.getElementById(tableID);
+  var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+  
+  // Specify file name
+  filename = filename?filename+'.xls':'excel_data.xls';
+  
+  // Create download link element
+  downloadLink = document.createElement("a");
+  
+  document.body.appendChild(downloadLink);
+  
+  if(navigator.msSaveOrOpenBlob){
+      var blob = new Blob(['\ufeff', tableHTML], {
+          type: dataType
+      });
+      navigator.msSaveOrOpenBlob( blob, filename);
+  }else{
+      // Create a link to the file
+      downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+  
+      // Setting the file name
+      downloadLink.download = filename;
+      
+      //triggering the function
+      downloadLink.click();
+  }
 }

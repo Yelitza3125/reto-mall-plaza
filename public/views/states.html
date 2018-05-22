@@ -25,10 +25,7 @@
         <div class="col s8 menu ">
           <ul>
             <li>
-              <a href="#">Salir</a>
-            </li>
-            <li>
-              <a href="states.html">Detalles</a>
+              <a href="area.html">Salir</a>
             </li>
             <li>
               <a href="registro.html">Nueva Tarea</a>
@@ -47,14 +44,15 @@
   <section class="container">
     <div class="row box-detail ">
 
-      <div class="">
+      <div class="style-title">
 
-        <h4 id="title-area"></h4>
+        <h4 class="left-align" id="title-area"></h4>
+        <a class="waves-effect btn btn-excel right-align" onclick="exportTableToExcel('tblData', 'tareas-data')">Exportar a excel</a class="waves-effect waves-light btn">
 
       </div>
 
     </div>
-    <div class="row">
+    <div class="row box-mes">
       <div class="col s5">
         <div>
           <select id="month">
@@ -99,67 +97,77 @@
 
     <!-- Radio Button -->
     <div class="radio-btn">
-      <ul>
-
+      <ul class="box-filters">
         <li>
           <label>
-            <input name="group1" type="radio" class="btn-radio" value="2" />
+            <input name="group1" type="checkbox" class="btn-radio filled-in" value="2" />
 
             <span>Cotización</span>
           </label>
         </li>
         <li>
           <label>
-            <input name="group1" type="radio" class="btn-radio" value="3" />
+            <input name="group1" type="checkbox" class="btn-radio filled-in" value="3" />
             <span>Orden de Compra</span>
           </label>
         </li>
         <li>
           <label>
-            <input name="group1" type="radio" class="btn-radio" value="4" />
+            <input name="group1" type="checkbox" class="btn-radio filled-in" value="4" />
             <span>Proceso</span>
           </label>
         </li>
         <li>
           <label>
-            <input name="group1" type="radio" class="btn-radio" value="5" />
+            <input name="group1" type="checkbox" class="btn-radio filled-in" value="5" />
             <span>Revision</span>
           </label>
         </li>
+      </ul>
+      <ul class="box-filters">
         <li>
           <label>
-            <input name="group1" type="radio" class="btn-radio" value="6" />
+            <input name="group1" type="checkbox" class="btn-radio filled-in" value="6" />
             <span>Finalizado</span>
           </label>
         </li>
         <li>
           <label>
-            <input name="group1" type="radio" class="btn-radio" value="7" />
+            <input name="group1" type="checkbox" class="btn-radio filled-in" value="7" />
             <span>Programado</span>
           </label>
         </li>
         <li>
           <label>
-            <input name="group1" type="radio" class="btn-radio" value="1" />
+            <input name="group1" type="checkbox" class="btn-radio filled-in" value="1" />
             <span>Fuera de Fecha</span>
           </label>
         </li>
         <li>
           <label>
-            <input name="group1" type="radio" class="btn-radio" value="8" />
+            <input name="group1" type="checkbox" class="btn-radio filled-in" value="8" />
             <span>Todas</span>
           </label>
         </li>
-
       </ul>
 
 
     </div>
   </section>
   <div class="container">
-    <div class="box-events "></div>
+    <div>
+      <table id="tblData" class="box-events centered striped">
+        <tr>
+            <th>Numero</th>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+            <th>Inicio</th>
+            <th>Fin</th>
+            <th>Estado</th>
+        </tr>
+      </table>
+    </div>
   </div>
-
 
 
 
