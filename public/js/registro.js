@@ -89,8 +89,6 @@ dateNew.on('change', function() {
 
 function getUserInput() {
   var date = $('#date-new').val();
-  alert(date);
-  alert(typeof date)
   var endDate = $('#date-end-new').val();
   var eventTitle = $('#title-new').val();
   var eventDes = $('#description-new').val();
