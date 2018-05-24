@@ -37,6 +37,68 @@ let deadLineExp = 0;
 let deadLineSecu = 0;
 
 
+ //Verificar si hay tareas fuera de fechas al cargar la página Seguridad
+ eventsDataSec.on('value', function (datos) {
+    let dataResult = datos.val();
+    
+
+    localStorage.lastEvent = lastEvent; // guardando 
+    dataResult.forEach(element => {
+        if ((element.start).slice(5, 7) == thisMonth) {
+            resultMonthSecu.push(element);
+        }
+
+    });
+
+    resultMonthSecu.forEach(element => {
+        if ((element.start == formatDay && element.state < 4) || (element.start == formatDay && element.state == 7) || (element.start < formatDay && element.state < 4) || (element.start < formatDay && element.state == 7)) {
+            deadLineSecu++;
+
+        }
+    })
+    localStorage.deadLineSecu = deadLineSecu;
+});
+eventsDataMant.on('value', function (datos) {
+    let dataResult = datos.val();
+    
+
+    localStorage.lastEvent = lastEvent; // guardando 
+    dataResult.forEach(element => {
+        if ((element.start).slice(5, 7) == thisMonth) {
+            resultMonthMant.push(element);
+        }
+
+    });
+
+    resultMonthMant.forEach(element => {
+        if ((element.start == formatDay && element.state < 4) || (element.start == formatDay && element.state == 7) || (element.start < formatDay && element.state < 4) || (element.start < formatDay && element.state == 7)) {
+            deadLineMan++;
+
+        }
+    })
+    localStorage.deadLineMan = deadLineMan;
+});
+eventsDataExp.on('value', function (datos) {
+    let dataResult = datos.val();
+   
+
+    localStorage.lastEvent = lastEvent; // guardando 
+    dataResult.forEach(element => {
+        if ((element.start).slice(5, 7) == thisMonth) {
+            resultMonthExp.push(element);
+        }
+
+    });
+
+    resultMonthExp.forEach(element => {
+        if ((element.start == formatDay && element.state < 4) || (element.start == formatDay && element.state == 7) || (element.start < formatDay && element.state < 4) || (element.start < formatDay && element.state == 7)) {
+            deadLineExp++;
+
+        }
+    })
+    localStorage.deadLineExp = deadLineExp;
+})
+
 
 
 
