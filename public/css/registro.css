@@ -1,5 +1,14 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: BrixSansRegular;
+  color: #444;
+}
 /*Fuentes*/
-  
+
 @font-face {
   font-family: BrixSans;
   src: url('../assets/fonts/BrixSansBlack.otf');
@@ -9,35 +18,163 @@
   font-family: BrixSansRegular;
   src: url('../assets/fonts/BrixSansRegular.otf');
 }
-
-
-h2.title {
-  font-family: BrixSans;
-  margin-top: 1.5em;
-  margin-bottom: 1em;
-
+/* Header */
+header {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(233,0,74,1);
+  background: -moz-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(233,0,74,1)), color-stop(100%, rgba(244,127,164,1)));
+  background: -webkit-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+  background: -o-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+  background: -ms-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+  background: linear-gradient(to right, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9004a', endColorstr='#f47fa4', GradientType=1 );
+height: 65px;
+}
+.responsive-img-logo{
+  width: 230px;
+  margin-top:3px
+}
+.bt-menu {
+  display: none;
 }
 
+
+header nav ul {
+  list-style: none;
+}
+header nav ul li {
+  padding: 20px;
+}
+header .active {
+  background-color: #fff;
+  color: #e90049;
+  margin: 5px 0;
+  padding: 10px;
+  font-weight: bold;
+}
+header nav ul li a {
+	color: #fff;
+	padding: 20px;
+	text-decoration: none;
+  font-size: 20px;
+}
+@media screen and (max-width: 960px) { 
+  header nav ul li a {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
 .vh100 {
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-
+  align-items: center;  
 }
-input, p, button {
-  font-family: BrixSansRegular;
+.figure {
+  height: 80vh;
+  display: flex;
+  justify-content: center;  
+  flex-direction: column;
+}
+.image {
+  width: 60%;
+  align-self: center;
+}
+/* Formulario */
+.registry {
+  margin-top: 50px;
+}
+.title {
+  font-family: BrixSans;
+  font-size: 1.8em;
+  margin-top: 1.5em;
+  margin-bottom: 0.8em;
+  background-color: #f2f2f2;
+  padding: 5px 0;
 }
 
-#addToCalendar, #signout-button {
-  background-color:#e90049 ;
+input {
+  margin-top: 5px;
+  padding: 5px;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+input:focus{
+  outline: 0;
+  box-shadow: 0 0 5px rgba(234,9,75, 1);
+  border: 1px solid rgba(234,9,75, 1);
+}
+label:focus, label:active {
+  color: #e90049;
+}
+.input-field input, .input-field label {
+  display: block;
+  width: 100%;
+}
+.input-field {
+  margin-bottom: 20px;
+}
+.btn {
+  text-decoration: none;
+  width: 25%;
+  padding: 8px 0px;  
+  border-radius: 4px;
+  border: 2px solid #e90049;
+  margin-top: 30px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.addToCalendar {  
+  background-color: #e90049;
   color: #fff;
-  text-transform: uppercase;
-  border:none;
+  margin-right: 25%;
+}
+.signout {
+  background-color: #fff;
+  color: #e90049;
 }
 
-.logotipo {
-  padding: 1em;
-  width: 80%;
+@media screen and (max-width: 768px) {
+  .bt-menu {
+    float: right;
+    font-size: 40px;
+    color: #fff;
+    display: inline-block;
+    padding: 10px 5px;
+  }
+  header nav {
+  	width: 60%;
+  	height: 100%;
+  	margin: 0;
+  	position: fixed;
+    left: -100%;
+    background-color: #fff;
+    
+  }
+  header nav ul li {
+  	display: block;
+  	float: none !important;
+  	border-bottom: 2px solid rgba(234,9,75, 0.3);
+  }
+  header nav ul li a, header nav ul li {
+    color: #e90049;
+  }
+  header .active {
+    background-color: #fff;
+    color: #e90049;
+    margin: 0;
+    font-weight: bold;
+  }
+  .figure {
+    height: 40vh;
+  }
+  .btn {
+    width: 35%;
+  }
 }

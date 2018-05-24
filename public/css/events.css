@@ -8,61 +8,126 @@
   src: url('../assets/fonts/BrixSansRegular.otf');
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  font-family: BrixSans;
+:root{
+  --mall:#e90049;
 }
 
-h1 {
-  font-family: BrixSans;
-  color: #ffffff;
-  font-size: 3rem;
+.box-month{
+  background-color: var(--mall);
+  color: white;
+  width: 150px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 24px
+}
+
+.select-wrapper input.select-dropdown:focus{
+  border-bottom: 1px solid var(--mall);
+}
+
+.dropdown-content li>a, .dropdown-content li>span{
+  color: var(--mall);
+}
+
+.radio-btn ul li {
+  width: 100%;
+}
+
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after{
+background-color: var(--mall)
+}
+[type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after{
+  border: 2px solid var(--mall)
+}
+
+[type="radio"]:not(:checked)+span, [type="radio"]:checked+span{
+  padding-left:25px
+}
+
+.radio-btn{
+  overflow: auto;
   padding-left: 2rem;
 }
-.bg-title {
-  background-color: #e90049;
-  margin: 0;
-  padding: 5rem 0;
+
+.number-detail{
+  color: var(--mall);
+  font-weight: 900;
+  font-size: 20px
 }
-.titleState {
-  font-size: 1.7rem;
-  color: rgb(168, 168, 168);
-  font-family: BrixSansRegular;
-  margin: 0 auto !important;
-  display: inline;
+
+.title-state{
+  font-weight: 900;
+  padding-right: 20px
 }
-.card {
-  width: 75%;
-  margin: 2rem auto;
-  padding: 2.5rem;
+
+.end{
+  padding-left: 65px
 }
-.pad-no {
-  padding: 0 !important;
-  position: relative;
+
+.box-state-detail{
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 40px;
+  border: 8px solid white;
+  box-sizing: border-box;
 }
-.estado {
-  font-size: 1.5rem;
-  padding: 2rem 0;
-  color: rgb(135, 134, 179);
-  font-family: BrixSansRegular;
+
+/* states */
+.style-title {
+  background-color: #e7e6e6;
+  padding: 1rem 2rem;
+  margin-top: 1.5rem;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: center;
+  align-content: stretch;
+  width: 100%;
 }
-.opcion {
-  font-size: 1.5rem;
-  padding: 2rem 0;
-  color: #e90049;
-  font-family: BrixSans;
+
+[type="checkbox"].filled-in:checked+span:not(.lever):after {
+  border: 2px solid var(--mall);
+  background-color: var(--mall);
 }
-.select {
-  display: block !important;
-  width: 50%;
-  margin: 0 auto;
+
+[type="checkbox"].filled-in:not(:checked)+span:not(.lever):after {
+  background-color: transparent;
+  border: 2px solid var(--mall);
 }
-.arrow {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
-  font-size: 3rem;
-  font-weight: bold;
-  color: #ffffff;
+
+.btn-excel {
+  background-color: var(--mall);
+}
+
+.btn-excel:hover {
+  background-color: #333;
+}
+
+.box-mes {
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.box-filters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: stretch;
+  padding: 1rem;
+}
+
+td, th {
+  text-align: center;
+}
+
+th {
+  background-color: #e7e6e6;
+  border-right: 2px solid white;
+  border-bottom: 1rem solid white;
+  color: #333;
 }

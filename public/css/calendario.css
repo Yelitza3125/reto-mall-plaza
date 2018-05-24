@@ -10,6 +10,9 @@
 
 * {
   font-family: BrixSansRegular, sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 h2 {
@@ -22,6 +25,77 @@ h2 {
 
 .btn-mall {
   background-color: #e90049;
+}
+
+.box-detail-title{
+background-color: #e7e6e6;
+}
+
+.box-detail-title h1{
+  font-weight: 800
+}
+.btn-detail{
+  background-color: #e90049;
+  color: white;
+  position: relative;
+  bottom: 7px;
+  
+}
+
+.btn-detail:hover{
+  color: white;
+  background-color: #ca0544;
+}
+
+nav{
+  background: rgba(233,0,74,1);
+background: -moz-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(233,0,74,1)), color-stop(100%, rgba(244,127,164,1)));
+background: -webkit-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+background: -o-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+background: -ms-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+background: linear-gradient(to right, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9004a', endColorstr='#f47fa4', GradientType=1 );
+height: 65px;
+}
+
+.menu ul li{
+ 
+  list-style: none;
+  padding: 0px 25px;
+  color: white;
+  float: right;
+ 
+}
+
+.menu ul li a{
+  text-decoration: none;
+  color: white;
+  font-size: 20px
+}
+
+
+.menu ul li a:hover{
+color: white
+}
+header .menu .active {
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #e90049;
+  margin: 0;
+  font-weight: bold;
+}
+
+.responsive-img-logo{
+  width: 230px;
+  margin-top:3px
+}
+
+.icon-mant{
+  color: #e90049;
+  font-size: 30px;
+  padding-top: 5px;
+  padding-right: 5px;
 }
 
 @media (min-width: 601px) {
@@ -37,3 +111,39 @@ h2 {
     min-height: 60vh;
   }
 } */
+
+.bt-menu{
+  display: none !important;
+}
+
+@media screen and (max-width: 960px) {
+  .bt-menu {
+    float: right;
+    font-size: 40px !important;
+    color: #fff;
+    display: inline-block !important;
+    padding: 10px 5px;
+  }
+  header .menu ul {
+  	width: 60%;
+  	height: 100%;
+  	margin: 0;
+    position: fixed;
+    z-index: 1000;
+    left: -100%;
+    background-color: #fff;    
+  }
+  .menu ul li {
+  	display: block;
+  	float: none !important;
+  	border-bottom: 2px solid rgba(234,9,75, 0.3);
+  }
+  .menu ul li a, .menu ul li {
+    color: #e90049;
+  }
+  header .menu .active {
+    color: #e90049;
+    margin: 0;
+    font-weight: bold;
+  }
+}
