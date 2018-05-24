@@ -1,3 +1,18 @@
+/* Iniciar navbar */
+var contador = 1;
+$('.bt-menu').click(function () {
+  if (contador === 1) {
+    $('.menu ul').animate({
+      left: '0'
+    });
+    contador = 0;
+  } else {
+    contador = 1;
+    $('.menu ul').animate({
+      left: '-100%'
+    });
+  }
+});
 var config = {
   apiKey: "AIzaSyAf1k6Z2g_XQhuDeg-s_FanIe5Irjsyjn8",
   authDomain: "bdmall-9832e.firebaseapp.com",

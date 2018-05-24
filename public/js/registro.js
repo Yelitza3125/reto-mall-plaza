@@ -88,6 +88,9 @@ function handleClientLoad() {
   gapi.load('client:auth2', initClient);
 }
 
+function validateDate() {
+
+}
 var addButton = $('#addToCalendar');
 var signoutButton = $('#signout-button');
 
@@ -95,7 +98,7 @@ addButton.on('click', function (event) {
   event.preventDefault();
   var userChoices = getUserInput();
   // 
-
+  validateDate();
   if (userChoices) {
     createEvent(userChoices);
     AddEventBD();

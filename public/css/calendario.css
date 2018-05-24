@@ -10,6 +10,9 @@
 
 * {
   font-family: BrixSansRegular, sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 h2 {
@@ -71,8 +74,16 @@ height: 65px;
   font-size: 20px
 }
 
+
 .menu ul li a:hover{
 color: white
+}
+header .menu .active {
+  padding: 10px 20px;
+  background-color: #fff;
+  color: #e90049;
+  margin: 0;
+  font-weight: bold;
 }
 
 .responsive-img-logo{
@@ -101,3 +112,38 @@ color: white
   }
 } */
 
+.bt-menu{
+  display: none !important;
+}
+
+@media screen and (max-width: 960px) {
+  .bt-menu {
+    float: right;
+    font-size: 40px !important;
+    color: #fff;
+    display: inline-block !important;
+    padding: 10px 5px;
+  }
+  header .menu ul {
+  	width: 60%;
+  	height: 100%;
+  	margin: 0;
+    position: fixed;
+    z-index: 1000;
+    left: -100%;
+    background-color: #fff;    
+  }
+  .menu ul li {
+  	display: block;
+  	float: none !important;
+  	border-bottom: 2px solid rgba(234,9,75, 0.3);
+  }
+  .menu ul li a, .menu ul li {
+    color: #e90049;
+  }
+  header .menu .active {
+    color: #e90049;
+    margin: 0;
+    font-weight: bold;
+  }
+}
