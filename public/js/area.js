@@ -40,7 +40,7 @@ let deadLineSecu = 0;
  //Verificar si hay tareas fuera de fechas al cargar la página Seguridad
  eventsDataSec.on('value', function (datos) {
     let dataResult = datos.val();
-    
+    lastEvent = datos.val().length;
 
     localStorage.lastEvent = lastEvent; // guardando 
     dataResult.forEach(element => {
@@ -53,14 +53,14 @@ let deadLineSecu = 0;
     resultMonthSecu.forEach(element => {
         if ((element.start == formatDay && element.state < 4) || (element.start == formatDay && element.state == 7) || (element.start < formatDay && element.state < 4) || (element.start < formatDay && element.state == 7)) {
             deadLineSecu++;
-
+           
         }
     })
     localStorage.deadLineSecu = deadLineSecu;
 });
 eventsDataMant.on('value', function (datos) {
     let dataResult = datos.val();
-    
+    lastEvent = datos.val().length;
 
     localStorage.lastEvent = lastEvent; // guardando 
     dataResult.forEach(element => {
@@ -73,14 +73,14 @@ eventsDataMant.on('value', function (datos) {
     resultMonthMant.forEach(element => {
         if ((element.start == formatDay && element.state < 4) || (element.start == formatDay && element.state == 7) || (element.start < formatDay && element.state < 4) || (element.start < formatDay && element.state == 7)) {
             deadLineMan++;
-
+            
         }
     })
     localStorage.deadLineMan = deadLineMan;
 });
 eventsDataExp.on('value', function (datos) {
     let dataResult = datos.val();
-   
+    lastEvent = datos.val().length;
 
     localStorage.lastEvent = lastEvent; // guardando 
     dataResult.forEach(element => {
@@ -93,7 +93,7 @@ eventsDataExp.on('value', function (datos) {
     resultMonthExp.forEach(element => {
         if ((element.start == formatDay && element.state < 4) || (element.start == formatDay && element.state == 7) || (element.start < formatDay && element.state < 4) || (element.start < formatDay && element.state == 7)) {
             deadLineExp++;
-
+           
         }
     })
     localStorage.deadLineExp = deadLineExp;
@@ -253,7 +253,7 @@ registerExp.on('click', function () {
         resultMonthExp.forEach(element => {
             if ((element.start == formatDay && element.state < 4) || (element.start == formatDay && element.state == 7) || (element.start < formatDay && element.state < 4) || (element.start < formatDay && element.state == 7)) {
                 deadLineExp++;
-
+               
             }
         })
         localStorage.deadLineExp = deadLineExp;
