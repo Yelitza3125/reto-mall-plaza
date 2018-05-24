@@ -1,67 +1,54 @@
-// Client ID and API key from the Developer Console
-var CLIENT_ID = '174387043472-mpubc53shtjju2jljruv1cft923md1gt.apps.googleusercontent.com';
-var API_KEY = 'AIzaSyCXWAjrt4YFlbdTbKrSCyGQzaSCwPCBskk';
+var config = {
+  apiKey: "AIzaSyAf1k6Z2g_XQhuDeg-s_FanIe5Irjsyjn8",
+  authDomain: "bdmall-9832e.firebaseapp.com",
+  databaseURL: "https://bdmall-9832e.firebaseio.com",
+  projectId: "bdmall-9832e",
+  storageBucket: "bdmall-9832e.appspot.com",
+  messagingSenderId: "116516962450"
+};
+firebase.initializeApp(config);
 
-// Array of API discovery doc URLs for APIs used by the quickstart
-var DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'];
 
-// Authorization SCOPES required by the API; multiple SCOPES can be
-// included, separated by spaces.
-var SCOPES = 'https://www.googleapis.com/auth/calendar';
+// Login con Google
+var provider = new firebase.auth.GoogleAuthProvider();
+$('#authorize-button').on('click', function () {
+  event.preventDefault();
+  firebase.auth().signInWithPopup(provider).then(function (result) {
+    var token = result.credential.accessToken;
 
-var authorizeButton = document.getElementById('authorize-button');
-var signoutButton = document.getElementById('signout-button');
+    var user = result.user;
+    // Usuarios de Mall
+    if (user.email === 'mpbperu@gmail.com') {
+      $(location).attr('href', 'views/area.html');
+      localStorage.sede = 'Bellavista';
+      localStorage.emailNotification = 'mpbperu@gmail.com';
+      localStorage.idCalendarMant = '626c8uffo3v8c4c46l6ctckmlc@group.calendar.google.com';
+      localStorage.idCalendarSeg = '1pab32lka5ipkjhmhha9vo1a60@group.calendar.google.com';
+      localStorage.idCalendarExp = 'coagdsh58j833j7gpeipjbmvb8@group.calendar.google.com';
 
-/**
- *  On load, called to load the auth2 library and API client library.
- */
-function handleClientLoad() {
-  gapi.load('client:auth2', initClient);
-}
-
-/**
- *  Initializes the API client library and sets up sign-in state
- *  listeners.
- */
-function initClient() {
-  gapi.client.init({
-    apiKey: API_KEY,
-    clientId: CLIENT_ID,
-    discoveryDocs: DISCOVERY_DOCS,
-    scope: SCOPES
-  }).then(function() {
-    // Listen for sign-in state changes.
-    gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-
-    // Handle the initial sign-in state.
-    updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-    authorizeButton.onclick = handleAuthClick;
-    // signoutButton.onclick = handleSignoutClick;
+    }
+    else if (user.email === 'mpperu.arequipa@gmail.com') {
+      $(location).attr('href', 'views/area.html');
+      localStorage.sede = 'Arequipa';
+      localStorage.emailNotification = 'mpperu.arequipa@gmail.com';
+      localStorage.idCalendarMant = 'l9224ut6bauond7gkdhp4190t0@group.calendar.google.com';
+      localStorage.idCalendarSeg = '2jb9tcrdava3n0vce25nmofj40@group.calendar.google.com';
+      localStorage.idCalendarExp = 'knt40u5hkucn932lu8ke4pa734@group.calendar.google.com';
+      
+    } 
+       
+    
+    else {
+      alert('correo inválido')
+    }
+  }).catch(function (error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+    console.log(errorMessage)
   });
-}
-
-/**
- *  Called when the signed in status changes, to update the UI
- *  appropriately. After a sign-in, the API is called.
- */
-function updateSigninStatus(isSignedIn) {
-  if (isSignedIn) {
-    $(location).attr('href', 'views/area.html');
-  } else {
-    // No hay sesión iniciada
-  }
-}
-
-/**
- *  Sign in the user upon button click.
- */
-function handleAuthClick(event) {
-  gapi.auth2.getAuthInstance().signIn();
-}
-
-/**
- *  Sign out the user upon button click.
- */
-function handleSignoutClick(event) {
-  gapi.auth2.getAuthInstance().signOut();
-}
+});
