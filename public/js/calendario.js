@@ -1,10 +1,10 @@
 var config = {
-  apiKey: 'AIzaSyBS0K0yMCQO1H3DAkx1jojSpH3spvVMapM',
-  authDomain: 'mall-plaza-12cf6.firebaseapp.com',
-  databaseURL: 'https://mall-plaza-12cf6.firebaseio.com',
-  projectId: 'mall-plaza-12cf6',
-  storageBucket: 'mall-plaza-12cf6.appspot.com',
-  messagingSenderId: '23083249729'
+  apiKey: "AIzaSyAf1k6Z2g_XQhuDeg-s_FanIe5Irjsyjn8",
+  authDomain: "bdmall-9832e.firebaseapp.com",
+  databaseURL: "https://bdmall-9832e.firebaseio.com",
+  projectId: "bdmall-9832e",
+  storageBucket: "bdmall-9832e.appspot.com",
+  messagingSenderId: "116516962450"
 };
 firebase.initializeApp(config);
 
@@ -12,8 +12,11 @@ firebase.initializeApp(config);
 let today = new Date();
 let thisMonth = today.getMonth() + 1;
 let formatDay = new Date(today).toISOString().substr(0, 10);
+let yearNow = today.getFullYear();
 
-
+// obteniendo Sede
+let sede = localStorage.getItem('sede');
+let areaSelect = localStorage.getItem('area');
 
 
 // variables editar
@@ -23,9 +26,10 @@ const dateEndEdit = $('#date-end-edit');
 const descriptionEdit = $('#description-edit');
 const stateEdit = $('#state-event-edit');
 let idSelect = '';
+const titleCalendar = $('#title-calendar');
 // Firebase
 let database = firebase.database();
-let eventsData = database.ref('Bellavista/2018/Mantenimiento');
+let eventsData = database.ref(`${sede}/${yearNow}/${areaSelect}`);
 
 
 
@@ -63,15 +67,6 @@ eventsData.on('value', function (datos) {
 
 
 
-// $('#calendar').fullCalendar({
-//   googleCalendarApiKey: 'AIzaSyD3UdXv-AuAkuoe8JIBawuDVQxqPxkkyT0',
-//   events: {
-//     googleCalendarId: '626c8uffo3v8c4c46l6ctckmlc@group.calendar.google.com'
-//   },
-//   eventColor: '#fbc02d ',
-//   aspectRatio: 2,
-//   fixedWeekCount: true
-// });
 
 if ($(window).width() <= 600) {
   $('#calendar').fullCalendar('changeView', 'listMonth');
@@ -85,7 +80,7 @@ if ($(window).width() <= 600) {
 // Actualizar evento
 $('#update').on('click', function () {
   let idUpdate = localStorage.getItem('idSelect')
-  var eventUpdate = firebase.database().ref(`Bellavista/2018/Mantenimiento/${idUpdate}`);
+  var eventUpdate = firebase.database().ref(`${sede}/${yearNow}/${areaSelect}/${idUpdate}`);
   eventUpdate.update({
     title: titleEdit.val(),
     start: dateEdit.val(),
@@ -96,7 +91,7 @@ $('#update').on('click', function () {
 
   });
   $('#calendar').fullCalendar('refetchEvents');
- 
+
 
   $(location).attr('href', 'calendario.html'); // recargar la pagina
   $('#modal-events').modal('toggle');
@@ -105,11 +100,13 @@ $('#update').on('click', function () {
 let resultMonth = [];
 let deadLine = 0;
 
+// Optimizando para todas las áreas
+
 
 //Verificar si hay tareas fuera de fechas al cargar la página
 eventsData.on('value', function (datos) {
   let dataResult = datos.val();
-
+if(dataResult){
   dataResult.forEach(element => {
     if ((element.start).slice(5, 7) == thisMonth) {
       resultMonth.push(element);
@@ -122,8 +119,20 @@ eventsData.on('value', function (datos) {
       deadLine++;
 
     }
-  })
-  localStorage.deadLineMan = deadLine;
+  });
+}
+ 
+
+  if (areaSelect == 'Mantenimiento') {
+    localStorage.deadLineMan = deadLine;
+  }
+  if (areaSelect == 'Seguridad') {
+    localStorage.deadLineSecu = deadLine;
+  }
+  if (areaSelect == 'Experiencia') {
+    localStorage.deadLineExp = deadLine;
+  }
+
 })
 
 
@@ -131,50 +140,66 @@ eventsData.on('value', function (datos) {
 
 
 // Mostrar alerta de tareas fuera de fechas
-if (localStorage.getItem('deadLineMan') > 0) {
-  $('#alert').empty();
-  let templateAlert = `<div class="alert alert-danger" role="alert">
-  <i class="fas fa-exclamation-triangle"></i><span> Existen tareas fuera de fecha</span> <button class="btn btn-detail float-right" id="btn-mall"> Mostrar</button>
-</div>`;
-  $('#alert').append(templateAlert);
-  $('#btn-mall').on('click', function () { // Boton que cambia de estado a fuera de fecha 
-    eventsData.on('value', function (datos) {
-      let dataResult = datos.val();
-
-      dataResult.forEach(element => {
-        if ((element.start).slice(5, 7) == thisMonth) {
-          resultMonth.push(element);
-        }
-
-      });
-
-      resultMonth.forEach(element => {
-        if ((element.start == formatDay && element.state < 4) || (element.start == formatDay && element.state == 7) || (element.start < formatDay && element.state < 4) || (element.start < formatDay && element.state == 7)) {
-          deadLine++;
-          var eventUpdate = firebase.database().ref(`Bellavista/2018/Mantenimiento/${element.id}`);
-          eventUpdate.update({
-
-            state: "1",
-            color: "#FF0045"
-
-          });
-        }
-      })
-
-    })
-    $(location).attr('href', 'calendario.html');
-  })
-} if(localStorage.getItem('deadLineMan') == 0) {
-  $('#alert').empty();
-  let templateAlert = `<div class="alert alert-success" role="alert">
-  <i class="far fa-check-circle"></i><span> Tareas dentro de fecha</span> 
-</div>`;
-  $('#alert').append(templateAlert);
+if(areaSelect == 'Mantenimiento'){
+  UpdateDeadLine('deadLineMan');
+  titleCalendar.text('Mantenimiento');
+}
+if(areaSelect == 'Seguridad'){
+  UpdateDeadLine('deadLineSecu');
+  titleCalendar.text('Seguridad');
+}
+if(areaSelect == 'Experiencia'){
+  UpdateDeadLine('deadLineExp');
+  titleCalendar.text('Experiencia');
 }
 
 
-
 // FUnciones globales
+ function UpdateDeadLine(localarea){
+  if (localStorage.getItem(`${localarea}`) > 0) {
+    $('#alert').empty();
+    let templateAlert = `<div class="alert alert-danger" role="alert">
+    <i class="fas fa-exclamation-triangle"></i><span> Existen tareas fuera de fecha</span> <button class="btn btn-detail float-right" id="btn-mall"> Mostrar</button>
+  </div>`;
+    $('#alert').append(templateAlert);
+    $('#btn-mall').on('click', function () { // Boton que cambia de estado a fuera de fecha 
+      eventsData.on('value', function (datos) {
+        let dataResult = datos.val();
+  
+        dataResult.forEach(element => {
+          if ((element.start).slice(5, 7) == thisMonth) {
+            resultMonth.push(element);
+          }
+  
+        });
+  
+        resultMonth.forEach(element => {
+          if ((element.start == formatDay && element.state < 4) || (element.start == formatDay && element.state == 7) || (element.start < formatDay && element.state < 4) || (element.start < formatDay && element.state == 7)) {
+            deadLine++;
+            var eventUpdate = firebase.database().ref(`${sede}/${yearNow}/${areaSelect}/${element.id}`);
+            eventUpdate.update({
+  
+              state: "1",
+              color: "#FF0045"
+  
+            });
+          }
+        })
+  
+      })
+      $(location).attr('href', 'calendario.html');
+    })
+  }
+  if (localStorage.getItem(`${localarea}`) == 0) {
+    $('#alert').empty();
+    let templateAlert = `<div class="alert alert-success" role="alert">
+    <i class="far fa-check-circle"></i><span> Tareas dentro de fecha</span> 
+  </div>`;
+    $('#alert').append(templateAlert);
+  }
+ }
+
+
 
 // Seleccionando valor de estado por valor 1 :orden de compra  2:cotización
 
