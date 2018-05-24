@@ -4,8 +4,8 @@ $('#date-end-new').dateDropper();
 
 /* Iniciar navbar */
 var contador = 1;
-$('.bt-menu').click(function() {
-  if ( contador === 1) {
+$('.bt-menu').click(function () {
+  if (contador === 1) {
     $('nav').animate({
       left: '0'
     });
@@ -20,12 +20,12 @@ $('.bt-menu').click(function() {
 
 /*****Registro de Tareas**** */
 var config = {
-  apiKey: 'AIzaSyBS0K0yMCQO1H3DAkx1jojSpH3spvVMapM',
-  authDomain: 'mall-plaza-12cf6.firebaseapp.com',
-  databaseURL: 'https://mall-plaza-12cf6.firebaseio.com',
-  projectId: 'mall-plaza-12cf6',
-  storageBucket: 'mall-plaza-12cf6.appspot.com',
-  messagingSenderId: '23083249729'
+  apiKey: "AIzaSyAf1k6Z2g_XQhuDeg-s_FanIe5Irjsyjn8",
+  authDomain: "bdmall-9832e.firebaseapp.com",
+  databaseURL: "https://bdmall-9832e.firebaseio.com",
+  projectId: "bdmall-9832e",
+  storageBucket: "bdmall-9832e.appspot.com",
+  messagingSenderId: "116516962450"
 };
 firebase.initializeApp(config);
 
@@ -35,12 +35,35 @@ const dateNew = $('#date-new');
 const dateEndNew = $('#date-end-new');
 const descriptionNew = $('#description-new');
 const stateNew = $('#state-event-new');
+let today = new Date();
+let thisMonth = today.getMonth() + 1;
+let formatDay = new Date(today).toISOString().substr(0, 10);
+let yearNow = today.getFullYear();
+let calendarId = '';
+// obteniendo Sede
+let sede = localStorage.getItem('sede');
+let areaSelect = localStorage.getItem('area');
+let emailNotification = localStorage.getItem('emailNotification');
 
 // Firebase
 let database = firebase.database();
-let eventsData = database.ref('Bellavista/2018/Mantenimiento');
+if (areaSelect == 'Mantenimiento') {
+  calendarId = localStorage.getItem('idCalendarMant');
+}
+if (areaSelect == 'Seguridad') {
+  calendarId = localStorage.getItem('idCalendarSeg');
+}
+if (areaSelect == 'Experiencia') {
+  calendarId = localStorage.getItem('idCalendarExp');
+}
+
+
+
+let eventsData = database.ref(`${sede}/${yearNow}/${areaSelect}`);
 
 // Varibales de insertar eventos
+
+
 // Obteniendo el último evento
 let lastEvent = '';
 
@@ -68,15 +91,15 @@ function handleClientLoad() {
 var addButton = $('#addToCalendar');
 var signoutButton = $('#signout-button');
 
-addButton.on('click', function(event) {
+addButton.on('click', function (event) {
   event.preventDefault();
   var userChoices = getUserInput();
   // 
-  
-  if (userChoices){
+
+  if (userChoices) {
     createEvent(userChoices);
     AddEventBD();
-  $(location).attr('href', 'calendario.html');
+    $(location).attr('href', 'calendario.html');
   }
 });
 
@@ -114,14 +137,14 @@ function initClient() {
     clientId: CLIENT_ID,
     discoveryDocs: DISCOVERY_DOCS,
     scope: SCOPES
-  }).then(function() {
+  }).then(function () {
     // Listen for sign-in state changes.
     gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
     // Handle the initial sign-in state.
     updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
     // authorizeButton.onclick = handleAuthClick;
-    signoutButton.on('click', function() {
+    signoutButton.on('click', function () {
       handleSignoutClick();
     });
   });
@@ -136,7 +159,7 @@ function updateSigninStatus(isSignedIn) {
   if (isSignedIn) {
     // authorizeButton.style.display = 'none';
     // signoutButton.style.display = 'block';
-    listUpcomingEvents();
+    // listUpcomingEvents();
   } else {
 
   }
@@ -155,33 +178,33 @@ function handleSignoutClick(event) {
  * Print the summary and start datetime/date of the next ten events in
  * the authorized user's calendar. If no events are found an
  * appropriate message is printed.
- */
-function listUpcomingEvents() {
-  gapi.client.calendar.events.list({
-    'calendarId': '626c8uffo3v8c4c46l6ctckmlc@group.calendar.google.com',
-    'timeMin': (new Date()).toISOString(),
-    'showDeleted': false,
-    'singleEvents': true,
-    'maxResults': 10,
-    'orderBy': 'startTime'
-  }).then(function(response) {
-    var events = response.result.items;
-    // appendPre('Upcoming events:');
+//  */
+// function listUpcomingEvents() {
+//   gapi.client.calendar.events.list({
+//     'calendarId': '626c8uffo3v8c4c46l6ctckmlc@group.calendar.google.com',
+//     'timeMin': (new Date()).toISOString(),
+//     'showDeleted': false,
+//     'singleEvents': true,
+//     'maxResults': 10,
+//     'orderBy': 'startTime'
+//   }).then(function (response) {
+//     var events = response.result.items;
+//     // appendPre('Upcoming events:');
 
-    if (events.length > 0) {
-      for (i = 0; i < events.length; i++) {
-        var event = events[i];
-        var when = event.start.dateTime;
-        if (!when) {
-          when = event.start.date;
-        }
-        // appendPre(event.summary + ' (' + when + ')');
-      }
-    } else {
-      // appendPre('No upcoming events found.');
-    }
-  });
-}
+//     if (events.length > 0) {
+//       for (i = 0; i < events.length; i++) {
+//         var event = events[i];
+//         var when = event.start.dateTime;
+//         if (!when) {
+//           when = event.start.date;
+//         }
+//         // appendPre(event.summary + ' (' + when + ')');
+//       }
+//     } else {
+//       // appendPre('No upcoming events found.');
+//     }
+//   });
+// }
 
 function createEvent(eventData) {
   // First create resource that will be send to server.
@@ -193,37 +216,42 @@ function createEvent(eventData) {
       'timeZone': 'America/Lima'
     },
     'end': {
-      'dateTime': new Date(eventData.endDate).toISOString() ,
+      'dateTime': new Date(eventData.endDate).toISOString(),
       'timeZone': 'America/Lima'
     },
-    'attendees': [
-      {'email': 'mpbperu@gmail.com'
-      },
-      {'email': 'carlacentenor@hotmail.com'}
+    'attendees': [{
+      'email': emailNotification
+      }
+      
 
     ],
     'reminders': {
       'useDefault': false,
-      'overrides': [
-        {'method': 'email',
-          'minutes': 34560},
-        {'method': 'email',
-          'minutes': 14400},
-        {'method': 'popup',
-          'minutes': 5}
+      'overrides': [{
+          'method': 'email',
+          'minutes': 34560
+        },
+        {
+          'method': 'email',
+          'minutes': 14400
+        },
+        {
+          'method': 'popup',
+          'minutes': 5
+        }
       ]
     }
   };
   console.log(resource.start.dayTime);
   // create the request
   var request = gapi.client.calendar.events.insert({
-    'calendarId': '626c8uffo3v8c4c46l6ctckmlc@group.calendar.google.com',
+    'calendarId': calendarId,
     'resource': resource,
 
   });
 
   // execute the request and do something with response
-  request.execute(function(resp) {
+  request.execute(function (resp) {
     console.log(resp);
     // alert("Your event was added to the calendar.");
   });
@@ -233,17 +261,17 @@ function createEvent(eventData) {
 
 let id = parseInt(localStorage.getItem('lastEvent'));
 
-function AddEventBD(){
+function AddEventBD() {
   // obteniendo el valor id siguiente
 
-  let eventsDataNew = database.ref('Bellavista/2018/Mantenimiento/' + id);
+  let eventsDataNew = database.ref(`${sede}/${yearNow}/${areaSelect}/${id}`);
 
-  let dateStartNew = new Date(dateNew.val()).toISOString().substr(0,10);
-  let dateEnd = new Date(dateEndNew.val()).toISOString().substr(0,10);
+  let dateStartNew = new Date(dateNew.val()).toISOString().substr(0, 10);
+  let dateEnd = new Date(dateEndNew.val()).toISOString().substr(0, 10);
   eventsDataNew.set({
     title: titleNew.val(),
-    start:  dateStartNew,
-    end:  dateEnd +' 24:00:00',
+    start: dateStartNew,
+    end: dateEnd + ' 24:00:00',
     descripcion: descriptionNew.val(),
     state: '7',
     // state: localStorage.stateNew,
@@ -252,7 +280,7 @@ function AddEventBD(){
 
   }, function () {
     console.log('Se registro correctamente');
-   
+
   });
-  
+
 }
