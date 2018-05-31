@@ -39,9 +39,14 @@ $('#authorize-button').on('click', function () {
        
     
     else {
-      alert('correo inválido')
+      // alert('correo inválido');
+      swal({
+        text: 'Correo inválido.',
+        type: 'warning',
+        confirmButtonColor: '#e90049',
+      });
     }
-  }).catch(function (error) {
+  }).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
