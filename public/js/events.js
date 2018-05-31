@@ -166,7 +166,12 @@ searchMonthYear.on('click', function () {
       })
     })
   } else {
-    alert('Selecciona Ambos campos')
+    // alerta seleccionar campos
+    swal({
+      text: 'Selecciona ambos campos.',
+      type: 'warning',
+      confirmButtonColor: '#e90049',
+    });
   }
 
 })

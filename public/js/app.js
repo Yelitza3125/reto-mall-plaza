@@ -39,7 +39,7 @@ $('#authorize-button').on('click', function () {
        
     
     else {
-      // alert('correo inválido');
+      // Alerta 'correo inválido');
       swal({
         text: 'Correo inválido.',
         type: 'warning',

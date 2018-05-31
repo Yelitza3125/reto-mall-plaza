@@ -102,7 +102,15 @@ addButton.on('click', function (event) {
   if (userChoices) {
     createEvent(userChoices);
     AddEventBD();
-    $(location).attr('href', 'calendario.html');
+    swal({
+      text: 'Evento agregado al calendario.',
+      type: 'success',
+      timer: 2000,
+      showConfirmButton: false,
+    });
+    setTimeout(function() {
+      $(location).attr('href', 'calendario.html');
+    }, 3000);
   }
 });
 
@@ -120,7 +128,12 @@ function getUserInput() {
   var eventDes = $('#description-new').val();
   // check input values, they should not be empty
   if (date === '' || endDate === '' || eventTitle === '') {
-    alert('All your input fields should have a meaningful value.');
+    // Alerta para llenar todos los campos
+    swal({
+      text: 'Debes llenar todos los campos.',
+      type: 'warning',
+      confirmButtonColor: '#e90049',
+    });
     return;
   } else return {
     'date': date,
@@ -283,7 +296,6 @@ function AddEventBD() {
 
   }, function () {
     console.log('Se registro correctamente');
-
   });
 
 }
