@@ -16,36 +16,37 @@ $('#authorize-button').on('click', function () {
   firebase.auth().signInWithPopup(provider).then(function (result) {
     var token = result.credential.accessToken;
     var user = result.user;
-    console.log(user)
-    // Usuarios de Mall
-    if (user.email === 'mpbperu@gmail.com') {
-      $(location).attr('href', 'views/area.html');
-      localStorage.sede = 'Bellavista';
-      localStorage.emailNotification = 'mpbperu@gmail.com';
-      localStorage.idCalendarMant = '626c8uffo3v8c4c46l6ctckmlc@group.calendar.google.com';
-      localStorage.idCalendarSeg = '1pab32lka5ipkjhmhha9vo1a60@group.calendar.google.com';
-      localStorage.idCalendarExp = 'coagdsh58j833j7gpeipjbmvb8@group.calendar.google.com';
-
-    }
-    else if (user.email === 'mpperu.arequipa@gmail.com') {
-      $(location).attr('href', 'views/area.html');
-      localStorage.sede = 'Arequipa';
-      localStorage.emailNotification = 'mpperu.arequipa@gmail.com';
-      localStorage.idCalendarMant = 'l9224ut6bauond7gkdhp4190t0@group.calendar.google.com';
-      localStorage.idCalendarSeg = '2jb9tcrdava3n0vce25nmofj40@group.calendar.google.com';
-      localStorage.idCalendarExp = 'knt40u5hkucn932lu8ke4pa734@group.calendar.google.com';
-      
-    } 
-       
     
-    else {
-      // Alerta 'correo inválido');
-      swal({
-        text: 'Correo inválido.',
-        type: 'warning',
-        confirmButtonColor: '#e90049',
-      });
-    }
+    // Usuarios de Mall
+    let database = firebase.database();
+    let dataUsers = database.ref(`Users`);
+    dataUsers.on('value', function(datos) {
+      let userResult = datos.val();
+      let verify = 0;
+      for(let i =0 ; i<userResult.length ;i++){
+        if(user.email == userResult[i].email){
+          verify++;
+          localStorage.sede = userResult[i].sede;
+          localStorage.emailNotification = userResult[i].email;
+          localStorage.idCalendarMant = userResult[i].idCalendarMant;
+          localStorage.idCalendarSeg = userResult[i].idCalendarSeg;
+          localStorage.idCalendarExp = userResult[i].idCalendarExp;
+          $(location).attr('href', 'views/area.html');
+          break;
+        }
+      }
+        if(verify==0){
+                    // Alerta 'correo inválido');
+            swal({
+              text: 'Correo inválido.',
+              type: 'warning',
+              confirmButtonColor: '#e90049',
+            });
+          
+        }
+    
+    });
+   
   }).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
