@@ -44,9 +44,13 @@ eventsDataSec.on('value', function(datos) {
 
   localStorage.lastEvent = lastEvent; // guardando 
   dataResult.forEach(element => {
-    if ((element.start).slice(5, 7) === thisMonth) {
+    console.log((element.start).slice(5, 7))
+    console.log(thisMonth -1)
+    if ((element.start).slice(5, 7) == thisMonth || (element.start).slice(5, 7) == thisMonth-1) {
+     
       resultMonthSecu.push(element);
-    }
+  }
+    
   });
 
   resultMonthSecu.forEach(element => {
@@ -62,7 +66,7 @@ eventsDataMant.on('value', function(datos) {
 
   localStorage.lastEvent = lastEvent; // guardando 
   dataResult.forEach(element => {
-    if ((element.start).slice(5, 7) == thisMonth) {
+    if ((element.start).slice(5, 7) == thisMonth|| (element.start).slice(5, 7) == thisMonth-1) {
       resultMonthMant.push(element);
     }
   });
@@ -80,7 +84,7 @@ eventsDataExp.on('value', function(datos) {
 
   localStorage.lastEvent = lastEvent; // guardando 
   dataResult.forEach(element => {
-    if ((element.start).slice(5, 7) == thisMonth) {
+    if ((element.start).slice(5, 7) == thisMonth || (element.start).slice(5, 7) == thisMonth-1) {
       resultMonthExp.push(element);
     }
   });
@@ -103,7 +107,7 @@ security.on('click', function() {
 
     localStorage.lastEvent = lastEvent; // guardando 
     dataResult.forEach(element => {
-      if ((element.start).slice(5, 7) == thisMonth) {
+      if ((element.start).slice(5, 7) == thisMonth || (element.start).slice(5, 7) == thisMonth-1) {
         resultMonthSecu.push(element);
       }
     });
@@ -115,7 +119,7 @@ security.on('click', function() {
     });
     localStorage.deadLineSecu = deadLineSecu;
   });
-  $(location).attr('href', 'registro.html');
+  $(location).attr('href', 'calendario.html');
 });
 
 mantenimiento.on('click', function() {
@@ -127,7 +131,7 @@ mantenimiento.on('click', function() {
 
     localStorage.lastEvent = lastEvent; // guardando 
     dataResult.forEach(element => {
-      if ((element.start).slice(5, 7) == thisMonth) {
+      if ((element.start).slice(5, 7) == thisMonth || (element.start).slice(5, 7) == thisMonth-1) {
         resultMonthMant.push(element);
       }
     });
@@ -139,10 +143,11 @@ mantenimiento.on('click', function() {
     });
     localStorage.deadLineMan = deadLineMan;
   });
-  $(location).attr('href', 'registro.html');
+  $(location).attr('href', 'calendario.html');
 });
 
 experiencia.on('click', function() {
+  
   localStorage.area = 'Experiencia';
   // Verificar si hay tareas fuera de fechas al cargar la página Experiencia
   eventsDataExp.on('value', function(datos) {
@@ -151,7 +156,7 @@ experiencia.on('click', function() {
 
     localStorage.lastEvent = lastEvent; // guardando 
     dataResult.forEach(element => {
-      if ((element.start).slice(5, 7) == thisMonth) {
+      if ((element.start).slice(5, 7) == thisMonth || (element.start).slice(5, 7) == thisMonth-1) {
         resultMonthExp.push(element);
       }
     });
@@ -163,7 +168,7 @@ experiencia.on('click', function() {
     });
     localStorage.deadLineExp = deadLineExp;
   });
-  $(location).attr('href', 'registro.html');
+  $(location).attr('href', 'calendario.html');
 });
 
 registerSeg.on('click', function() {
@@ -175,7 +180,7 @@ registerSeg.on('click', function() {
 
     localStorage.lastEvent = lastEvent; // guardando 
     dataResult.forEach(element => {
-      if ((element.start).slice(5, 7) == thisMonth) {
+      if ((element.start).slice(5, 7) == thisMonth || (element.start).slice(5, 7) == thisMonth-1) {
         resultMonthSecu.push(element);
       }
     });
@@ -199,7 +204,7 @@ registerMan.on('click', function() {
 
     localStorage.lastEvent = lastEvent; // guardando 
     dataResult.forEach(element => {
-      if ((element.start).slice(5, 7) == thisMonth) {
+      if ((element.start).slice(5, 7) == thisMonth || (element.start).slice(5, 7) == thisMonth-1) {
         resultMonthMant.push(element);
       }
     });
@@ -223,7 +228,7 @@ registerExp.on('click', function() {
 
     localStorage.lastEvent = lastEvent; // guardando 
     dataResult.forEach(element => {
-      if ((element.start).slice(5, 7) == thisMonth) {
+      if ((element.start).slice(5, 7) == thisMonth || (element.start).slice(5, 7) == thisMonth-1) {
         resultMonthExp.push(element);
       }
     });
@@ -237,3 +242,5 @@ registerExp.on('click', function() {
     $(location).attr('href', 'registro.html');
   });
 });
+
+

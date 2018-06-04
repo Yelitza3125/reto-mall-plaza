@@ -126,9 +126,13 @@ searchMonthYear.on('click', function() {
         console.log('No hay eventos');
         box.append('<p class="style-title">No hay eventos.</p>');
       }
-     
+      const selectedStates = []; 
       // Filtrado por estado dentro de los resultados de mes y año
       $('.btn-radio').on('change', function(e) {
+        let currentState = e.currentTarget.value;
+        selectedStates.indexOf(currentState) < 0 ?
+          selectedStates.push(currentState) :
+          selectedStates.splice(selectedStates.indexOf(currentState), 1);
         box.empty();
         var template =
         ` <tr>
@@ -140,11 +144,11 @@ searchMonthYear.on('click', function() {
             <th>Estado</th>
           </tr>`;
         box.append(template);
-        $.each(arrayResult, function(indice, valor) {
-          if (e.currentTarget.value === valor.state) {
+        $.each(data, function(indice, valor) {
+          if (selectedStates.indexOf(valor.state) > -1) {
             renderInfo(valor, indice);
-          }
-          if (e.currentTarget.value === 8) {
+          } 
+          if (e.currentTarget.value == 8) {
             renderInfo(valor, indice);
           }
         });

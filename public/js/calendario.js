@@ -123,7 +123,7 @@ eventsData.on('value', function (datos) {
   let dataResult = datos.val();
 if(dataResult){
   dataResult.forEach(element => {
-    if ((element.start).slice(5, 7) == thisMonth) {
+    if ((element.start).slice(5, 7) == thisMonth || (element.start).slice(5, 7) == thisMonth-1) {
       resultMonth.push(element);
     }
 
@@ -182,7 +182,7 @@ if(areaSelect == 'Experiencia'){
         let dataResult = datos.val();
   
         dataResult.forEach(element => {
-          if ((element.start).slice(5, 7) == thisMonth) {
+          if ((element.start).slice(5, 7) == thisMonth || (element.start).slice(5, 7) == thisMonth-1) {
             resultMonth.push(element);
           }
   

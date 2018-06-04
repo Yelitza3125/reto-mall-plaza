@@ -15,8 +15,8 @@ $('#authorize-button').on('click', function () {
   event.preventDefault();
   firebase.auth().signInWithPopup(provider).then(function (result) {
     var token = result.credential.accessToken;
-
     var user = result.user;
+    console.log(user)
     // Usuarios de Mall
     if (user.email === 'mpbperu@gmail.com') {
       $(location).attr('href', 'views/area.html');
