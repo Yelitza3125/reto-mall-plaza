@@ -37,31 +37,41 @@ let deadLineExp = 0;
 let deadLineSecu = 0;
 
 
+
+
 // Verificar si hay tareas fuera de fechas al cargar la página Seguridad
 eventsDataSec.on('value', function(datos) {
   let dataResult = datos.val();
-  lastEvent = datos.val().length;
+  if(dataResult!== null){
+    lastEvent = datos.val().length;
 
-  localStorage.lastEvent = lastEvent; // guardando 
-  dataResult.forEach(element => {
-    console.log((element.start).slice(5, 7))
-    console.log(thisMonth -1)
-    if ((element.start).slice(5, 7) == thisMonth || (element.start).slice(5, 7) == thisMonth-1) {
-     
-      resultMonthSecu.push(element);
-  }
-    
-  });
-
-  resultMonthSecu.forEach(element => {
-    if ((element.start == formatDay && element.state < 4) || (element.start == formatDay && element.state == 7) || (element.start < formatDay && element.state < 4) || (element.start < formatDay && element.state == 7)) {
-      deadLineSecu++;
+    localStorage.lastEvent = lastEvent; // guardando 
+    dataResult.forEach(element => {
+      console.log((element.start).slice(5, 7))
+      console.log(thisMonth -1)
+      if ((element.start).slice(5, 7) == thisMonth || (element.start).slice(5, 7) == thisMonth-1) {
+       
+        resultMonthSecu.push(element);
     }
-  });
-  localStorage.deadLineSecu = deadLineSecu;
+      
+    });
+  
+    resultMonthSecu.forEach(element => {
+      if ((element.start == formatDay && element.state < 4) || (element.start == formatDay && element.state == 7) || (element.start < formatDay && element.state < 4) || (element.start < formatDay && element.state == 7)) {
+        deadLineSecu++;
+      }
+    });
+    localStorage.deadLineSecu = deadLineSecu;
+  }
+  if(dataResult== null){
+    localStorage.lastEvent = 0; // guardando 
+    localStorage.deadLineSecu = 0;
+  }
+ 
 });
 eventsDataMant.on('value', function(datos) {
   let dataResult = datos.val();
+  if(dataResult!== null){
   lastEvent = datos.val().length;
 
   localStorage.lastEvent = lastEvent; // guardando 
@@ -77,9 +87,16 @@ eventsDataMant.on('value', function(datos) {
     }
   });
   localStorage.deadLineMan = deadLineMan;
+  }
+  if(dataResult== null){
+    localStorage.lastEvent = 0; // guardando 
+    localStorage.deadLineSecu = 0;
+  }
+
 });
 eventsDataExp.on('value', function(datos) {
   let dataResult = datos.val();
+  if(dataResult!== null){
   lastEvent = datos.val().length;
 
   localStorage.lastEvent = lastEvent; // guardando 
@@ -95,6 +112,12 @@ eventsDataExp.on('value', function(datos) {
     }
   });
   localStorage.deadLineExp = deadLineExp;
+}
+if(dataResult== null){
+  localStorage.lastEvent = 0; // guardando 
+  localStorage.deadLineExp = 0;
+}
+
 });
 
 
@@ -103,6 +126,7 @@ security.on('click', function() {
   // Verificar si hay tareas fuera de fechas al cargar la página Seguridad
   eventsDataSec.on('value', function(datos) {
     let dataResult = datos.val();
+    if(dataResult!== null){
     lastEvent = datos.val().length;
 
     localStorage.lastEvent = lastEvent; // guardando 
@@ -118,6 +142,12 @@ security.on('click', function() {
       }
     });
     localStorage.deadLineSecu = deadLineSecu;
+  }
+  if(dataResult== null){
+    localStorage.lastEvent = 0; // guardando 
+    localStorage.deadLineSecu = 0;
+  }
+
   });
   $(location).attr('href', 'calendario.html');
 });
@@ -127,6 +157,7 @@ mantenimiento.on('click', function() {
   // Verificar si hay tareas fuera de fechas al cargar la página Mantenimiento
   eventsDataMant.on('value', function(datos) {
     let dataResult = datos.val();
+    if(dataResult!== null){
     lastEvent = datos.val().length;
 
     localStorage.lastEvent = lastEvent; // guardando 
@@ -142,6 +173,12 @@ mantenimiento.on('click', function() {
       }
     });
     localStorage.deadLineMan = deadLineMan;
+  }
+  if(dataResult== null){
+    localStorage.lastEvent = 0; // guardando 
+    localStorage.deadLineMan = 0;
+  }
+
   });
   $(location).attr('href', 'calendario.html');
 });
@@ -152,6 +189,7 @@ experiencia.on('click', function() {
   // Verificar si hay tareas fuera de fechas al cargar la página Experiencia
   eventsDataExp.on('value', function(datos) {
     let dataResult = datos.val();
+    if(dataResult!== null){
     lastEvent = datos.val().length;
 
     localStorage.lastEvent = lastEvent; // guardando 
@@ -167,6 +205,11 @@ experiencia.on('click', function() {
       }
     });
     localStorage.deadLineExp = deadLineExp;
+  }
+  if(dataResult== null){
+    localStorage.lastEvent = 0; // guardando 
+    localStorage.deadLineExp = 0;
+  }
   });
   $(location).attr('href', 'calendario.html');
 });
@@ -176,6 +219,7 @@ registerSeg.on('click', function() {
   // Verificar si hay tareas fuera de fechas al cargar la página Seguridad
   eventsDataSec.on('value', function(datos) {
     let dataResult = datos.val();
+    if(dataResult!== null){
     lastEvent = datos.val().length;
 
     localStorage.lastEvent = lastEvent; // guardando 
@@ -191,6 +235,11 @@ registerSeg.on('click', function() {
       }
     });
     localStorage.deadLineSecu = deadLineSecu;
+  }
+  if(dataResult== null){
+    localStorage.lastEvent = 0; // guardando 
+    localStorage.deadLineSecu = 0;
+  }
     $(location).attr('href', 'registro.html');
   });
 });
@@ -200,6 +249,7 @@ registerMan.on('click', function() {
   // Verificar si hay tareas fuera de fechas al cargar la página Mantenimiento
   eventsDataMant.on('value', function(datos) {
     let dataResult = datos.val();
+    if(dataResult!== null){
     lastEvent = datos.val().length;
 
     localStorage.lastEvent = lastEvent; // guardando 
@@ -215,6 +265,11 @@ registerMan.on('click', function() {
       }
     });
     localStorage.deadLineMan = deadLineMan;
+  }
+  if(dataResult== null){
+    localStorage.lastEvent = 0; // guardando 
+    localStorage.deadLineMan = 0;
+  }
     $(location).attr('href', 'registro.html');
   });
 });
@@ -224,6 +279,7 @@ registerExp.on('click', function() {
   // Verificar si hay tareas fuera de fechas al cargar la página Experiencia
   eventsDataExp.on('value', function(datos) {
     let dataResult = datos.val();
+    if(dataResult!== null){
     lastEvent = datos.val().length;
 
     localStorage.lastEvent = lastEvent; // guardando 
@@ -239,6 +295,11 @@ registerExp.on('click', function() {
       }
     });
     localStorage.deadLineExp = deadLineExp;
+  }
+  if(dataResult== null){
+    localStorage.lastEvent = 0; // guardando 
+    localStorage.deadLineExp = 0;
+  }
     $(location).attr('href', 'registro.html');
   });
 });

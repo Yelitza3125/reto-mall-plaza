@@ -36,16 +36,17 @@ var box = $('.box-events');
 
 events.on('value', function(datos) {
   data = datos.val();
-  order = data.sort(function(a, b) {
-    return (a.state - b.state);
-  });
+  if(data!== null){
 
-  $.each(order, function(indice, valor) {
-    if (parseInt((valor.start).slice(5, 7)) == thisMonth) {
-      renderInfo(valor, indice);
-    }
-  });
-  const selectedStates = []; 
+    order = data.sort(function(a, b) {
+      return (a.state - b.state);
+    });
+    $.each(order, function(indice, valor) {
+      if (parseInt((valor.start).slice(5, 7)) == thisMonth) {
+        renderInfo(valor, indice);
+      }
+    });
+    const selectedStates = []; 
   $('.btn-radio').on('change', function(e) {
     let currentState = e.currentTarget.value;
     selectedStates.indexOf(currentState) < 0 ?
@@ -75,6 +76,10 @@ events.on('value', function(datos) {
       });
     });
   });
+  }
+
+  
+  
 });
 
 // Filtro por mes y año

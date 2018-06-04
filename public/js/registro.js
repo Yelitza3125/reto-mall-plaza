@@ -57,9 +57,26 @@ if (areaSelect == 'Experiencia') {
   calendarId = localStorage.getItem('idCalendarExp');
 }
 
+let yearAddBd =new Date(dateNew.val()).toISOString().substr(0, 4);
+localStorage.yearAddBd = yearAddBd;
+dateNew.on('change' , function(){
+  yearAddBd =new Date(dateNew.val()).toISOString().substr(0, 4);
+  localStorage.yearAddBd = yearAddBd;
+  let eventsData = database.ref(`${sede}/${yearAddBd}/${areaSelect}`);
+  eventsData.on('value', function (datos) {
+    lastEvent = datos.val();
+    if(lastEvent== null){
+      localStorage.lastEvent = 0; // guardando 
+    }
+    if(lastEvent!==null){
+      localStorage.lastEvent = lastEvent.length; // guardando 
+    }
+    
+  })
+})
 
 
-let eventsData = database.ref(`${sede}/${yearNow}/${areaSelect}`);
+let eventsData = database.ref(`${sede}/${yearAddBd}/${areaSelect}`);
 
 // Varibales de insertar eventos
 
@@ -68,9 +85,16 @@ let eventsData = database.ref(`${sede}/${yearNow}/${areaSelect}`);
 let lastEvent = '';
 
 eventsData.on('value', function (datos) {
-  lastEvent = datos.val().length;
-  localStorage.lastEvent = lastEvent; // guardando 
+  lastEvent = datos.val();
+  if(lastEvent!==null){
+    localStorage.lastEvent = lastEvent.length; // guardando 
+  }
+  if(lastEvent==null){
+    localStorage.lastEvent = 0; // guardando 
+  }
+  
 })
+
 
 
 // Client ID and API key from the Developer Console
@@ -280,7 +304,7 @@ let id = parseInt(localStorage.getItem('lastEvent'));
 function AddEventBD() {
   // obteniendo el valor id siguiente
 
-  let eventsDataNew = database.ref(`${sede}/${yearNow}/${areaSelect}/${id}`);
+  let eventsDataNew = database.ref(`${sede}/${yearAddBd}/${areaSelect}/${id}`);
 
   let dateStartNew = new Date(dateNew.val()).toISOString().substr(0, 10);
   let dateEnd = new Date(dateEndNew.val()).toISOString().substr(0, 10);
