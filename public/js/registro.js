@@ -276,7 +276,7 @@ function createEvent(eventData) {
           'minutes': 14400
         },
         {
-          'method': 'popup',
+          'method': 'email',
           'minutes': 5
         }
       ]
