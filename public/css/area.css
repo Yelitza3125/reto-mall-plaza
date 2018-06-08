@@ -1,11 +1,3 @@
-/* * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  } */
-  
-  /*Fuentes*/
-  
   @font-face {
     font-family: BrixSans;
     src: url('../assets/fonts/BrixSansBlack.otf');
@@ -15,12 +7,67 @@
     font-family: BrixSansRegular;
     src: url('../assets/fonts/BrixSansRegular.otf');
   }
-  
-  /* Clase general */
-  body, html, section {
-    height: 100%;
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    font-family: BrixSansRegular;
+    color: #444;
   }
   
+  header {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background: rgba(233,0,74,1);
+    background: -moz-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(233,0,74,1)), color-stop(100%, rgba(244,127,164,1)));
+    background: -webkit-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+    background: -o-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+    background: -ms-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+    background: linear-gradient(to right, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9004a', endColorstr='#f47fa4', GradientType=1 );
+    height: 65px;
+  }
+  .responsive-img-logo{
+    width: 230px;
+    margin-top:3px
+  }
+  .bt-menu {
+    display: none;
+  }
+  header nav ul {
+    list-style: none;
+  }
+  header nav ul li {
+    padding: 20px;
+  }
+  header .active {
+    background-color: #fff;
+    color: #e90049;
+    margin: 5px 0;
+    padding: 10px 40px;
+    font-weight: bold;
+  }
+  header nav ul li a {
+    color: #fff;
+    padding: 20px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  @media screen and (max-width: 960px) { 
+    header nav ul li a {
+      padding: 10px;
+      font-size: 14px;
+    }
+  }
+
   .container-desktop-flex {
     display: flex;
     justify-content: center;
@@ -34,10 +81,13 @@
     align-items: center;
   }
   /*Title*/
-  h2.title {
-    font-family: BrixSansRegular;
+  .title {
+    margin-top: 100px;
     margin-bottom: 2em;
+    padding: 20px;
     color: #333;
+    font-size: 1.4em;
+    background: #f2f2f2;
   }
   
   /* Container de areas */
@@ -45,10 +95,10 @@
   div.area-container {
     /*outline: 1px solid red; */
     height: 250px;
+    margin: 0 40px;
     background-color: #e90049;
-  }
-  
-  
+    
+  } 
   
    /* imagenes de background */
   
@@ -74,7 +124,6 @@
   
   /*Contenedor que aparece al hacer hover */
   div.button-container {
-    width: 100%;
     height: 250px;
     background-color: #e90049;
     visibility: hidden;
@@ -84,15 +133,22 @@
     margin-bottom: 1em;
     font-size: 2em;
     font-family: BrixSansRegular;
+    color: #e90049;
   }
-  
   div.area-container:hover div.button-container {
-    visibility: visible;
+    visibility: visible;  
+    border: 5px solid #e90049;
+    border-radius: 10px;
+    background-color: #fff;
   }
   
   div.icon-container i {
     cursor: pointer;
     margin-right: 10px;
+  }
+  .material-icons {
+    color: #e90049;
+    font-size: 4rem;
   }
   
   @media (max-width: 600px) {
@@ -102,8 +158,7 @@
       margin-top: 10em;
       font-size: 2.5em;
   
-    }
-    
+    }    
     
     .container-desktop-flex {   
       flex-direction: column;
@@ -120,4 +175,26 @@
       height: 200px;
       margin-top: 1em;
     }  
+  }
+
+  footer {
+    overflow: hidden;    
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(233,0,74,1);
+    background: -moz-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(233,0,74,1)), color-stop(100%, rgba(244,127,164,1)));
+    background: -webkit-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+    background: -o-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+    background: -ms-linear-gradient(left, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+    background: linear-gradient(to right, rgba(233,0,74,1) 0%, rgba(244,127,164,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9004a', endColorstr='#f47fa4', GradientType=1 );
+    height: 40px;
+  }
+  footer .message {
+    margin-top:10px;
+    text-align: center;
+    font-size: 1.2em;
+    color: #fff;
   }

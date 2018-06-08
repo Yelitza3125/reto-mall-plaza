@@ -27,7 +27,7 @@
         <div class="col-lg-8 menu pt-3">
           <ul>
             <li>
-              <a href="#">Salir</a>
+              <a href="../index.html">Cerrar sesión</a>
             </li>
             <li>
               <a href="states.html">Detalles</a>
@@ -46,18 +46,53 @@
       </div>
     </nav>
   </header>
-  <section class="container">
+  <section class="container pb-4">
     <div class="row box-detail-title mb-3">
       <div class="col-6">
         <div class="float-left">
-          <h1 id="title-calendar">Mantenimiento</h1>
+          <h1 id="title-calendar"></h1>
         </div>
-      </div>
+      </div>      
       <div class="col-6">
         <div class="float-right icon-mant">
           <span class="fas fa-wrench"></span>
         </div>
       </div>
+      </div>
+      <!-- Colores de leyendas -->
+      <div class="row">
+        <div class="col-12">
+          <ul class="list-legend">
+            <li>
+              <span class="circle gray"></span>
+              <span>Programada</span>
+            </li>
+            <li>
+              <span class="circle orange"></span>
+              <span>Cotizacion</span>
+            </li>
+            <li>
+              <span class="circle yellow"></span>
+              <span>OC en proceso</span>
+            </li>
+            <li>
+              <span class="circle green"></span>
+              <span>Pro en proceso</span>
+            </li>
+            <li>
+              <span class="circle darkslategray"></span>
+              <span>Revisión / HES</span>
+            </li>
+            <li>
+              <span class="circle blue"></span>
+              <span>Finalizado</span>
+            </li>
+            <li>
+              <span class="circle red"></span>
+              <span>Fuera de fecha</span>
+            </li>
+          </ul>
+        </div>
       </div>
      
       <div id="alert"></div>
@@ -119,11 +154,9 @@
       </div>
     </div>
   </div>
-
-
- 
-
-
+  <footer>
+    <div class="message">¡Buen trabajo!</div>
+  </footer>
 
   <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
