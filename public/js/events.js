@@ -1,10 +1,10 @@
 var config = {
-  apiKey: 'AIzaSyAf1k6Z2g_XQhuDeg-s_FanIe5Irjsyjn8',
-  authDomain: 'bdmall-9832e.firebaseapp.com',
-  databaseURL: 'https://bdmall-9832e.firebaseio.com',
-  projectId: 'bdmall-9832e',
-  storageBucket: 'bdmall-9832e.appspot.com',
-  messagingSenderId: '116516962450'
+  apiKey: "AIzaSyA70IZ4pYA_LbtDTusPsEIUsqnlZEUkQyw",
+  authDomain: "mallplaza-dbe0c.firebaseapp.com",
+  databaseURL: "https://mallplaza-dbe0c.firebaseio.com",
+  projectId: "mallplaza-dbe0c",
+  storageBucket: "mallplaza-dbe0c.appspot.com",
+  messagingSenderId: "832805829105"
 };
 firebase.initializeApp(config);
 // Obteniendo el mes actual

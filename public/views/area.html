@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
   <title>Mall Plaza - Areas</title>
   <!-- Iconos -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -11,20 +14,26 @@
   <link rel="stylesheet" href="../css/grid.css">
   <link rel="stylesheet" href="../css/area.css">
 </head>
-<body >
+
+<body>
   <header>
     <div class="container">
-      <div class="row">      
+      <div class="row">
         <div class="col-xs-12 col-sm-8">
-          <a class=""><span class="material-icons bt-menu">menu</span>
+          <a class="">
+            <span class="material-icons bt-menu">menu</span>
             <img class="responsive-img-logo" src="../assets/images/logo_Mallplaza__horiz.png" alt="">
           </a>
           <!--<a class="" href=""><img class="responsive-img-logo" src="../assets/images/logo_Mallplaza__horiz.png" alt=""></a>-->
         </div>
         <nav class="col-sm-4">
           <ul class="row">
-            <li class="col-sm-6"><a class="active">Inicio</a></li>
-            <li class="col-sm-6"><a href="../index.html" id="signout">Cerrar Sesión</a></li>
+            <li class="col-sm-6">
+              <a class="active">Inicio</a>
+            </li>
+            <li class="col-sm-6">
+              <a href="../index.html" id="signout">Cerrar Sesión</a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -39,50 +48,62 @@
           </div>
         </div>
       </div>
-      <div class="row"> 
+      <div class="row">
         <div class="col-xs-10 col-xs-offset-1">
           <!--Mantenimiento -->
-          <div class="col-xs-12 col-sm-4" >
-            <div  class="area-container mantenimiento">            
+          <div class="col-xs-12 col-sm-4">
+            <div class="area-container mantenimiento">
               <div class="display-flex-column button-container">
                 <p>Mantenimiento</p>
-                  <div class=" icon-container">
-                  <a  id="register-man"><i class="material-icons" >add_circle</i></a> 
-                    <a href="calendario.html" id="mantenimiento"> <i class="medium material-icons">event</i></a>
-                  </div>
+                <div class=" icon-container">
+                  <a id="register-man">
+                    <i class="material-icons">add_circle</i>
+                  </a>
+                  <a href="calendario.html" id="mantenimiento">
+                    <i class="medium material-icons">event</i>
+                  </a>
+                </div>
               </div>
             </div>
-          </div> 
+          </div>
 
           <!--Seguridad -->
           <div class="col-xs-12 col-sm-4">
-            <div class="area-container seguridad">            
+            <div class="area-container seguridad">
               <div class="display-flex-column button-container">
                 <p>Seguridad</p>
                 <div class="icon-container">
-                  <a  id="register-seg"><i class="material-icons" >add_circle</i></a> 
-                  <a href="calendario.html" id="seguridad"><i class="medium material-icons" >event</i></a> 
+                  <a id="register-seg">
+                    <i class="material-icons">add_circle</i>
+                  </a>
+                  <a href="calendario.html" id="seguridad">
+                    <i class="medium material-icons">event</i>
+                  </a>
                 </div>
               </div>
-            </div>                 
+            </div>
           </div>
 
           <!--Experiencia -->
           <div class="col-xs-12 col-sm-4">
-            <div class="area-container experiencia">            
+            <div class="area-container experiencia">
               <div class="display-flex-column button-container">
                 <p>Experiencia</p>
                 <div class="icon-container">
-                  <a  id="register-exp"><i class="material-icons" >add_circle</i></a> 
-                  <a href="calendario.html" id="experiencia"><i class="medium material-icons white-text" >event</i></a> 
+                  <a id="register-exp">
+                    <i class="material-icons">add_circle</i>
+                  </a>
+                  <a href="calendario.html" id="experiencia">
+                    <i class="medium material-icons white-text">event</i>
+                  </a>
                 </div>
               </div>
-            </div>                 
+            </div>
           </div>
 
         </div>
       </div>
-    
+
     </div>
   </section>
   <footer>
@@ -91,7 +112,8 @@
   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
   <script src="../vendors/jquery/jquery-3.2.1.min.js"></script>
   <script src="../vendors/materialize/js/materialize.min.js"></script>
-  
+
   <script src="../js/area.js"></script>
 </body>
+
 </html>
