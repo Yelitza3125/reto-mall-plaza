@@ -1,10 +1,10 @@
 var config = {
-  apiKey: "AIzaSyAf1k6Z2g_XQhuDeg-s_FanIe5Irjsyjn8",
-  authDomain: "bdmall-9832e.firebaseapp.com",
-  databaseURL: "https://bdmall-9832e.firebaseio.com",
-  projectId: "bdmall-9832e",
-  storageBucket: "bdmall-9832e.appspot.com",
-  messagingSenderId: "116516962450"
+  apiKey: "AIzaSyA70IZ4pYA_LbtDTusPsEIUsqnlZEUkQyw",
+  authDomain: "mallplaza-dbe0c.firebaseapp.com",
+  databaseURL: "https://mallplaza-dbe0c.firebaseio.com",
+  projectId: "mallplaza-dbe0c",
+  storageBucket: "mallplaza-dbe0c.appspot.com",
+  messagingSenderId: "832805829105"
 };
 firebase.initializeApp(config);
 
@@ -16,15 +16,15 @@ $('#authorize-button').on('click', function () {
   firebase.auth().signInWithPopup(provider).then(function (result) {
     var token = result.credential.accessToken;
     var user = result.user;
-    
+
     // Usuarios de Mall
     let database = firebase.database();
     let dataUsers = database.ref(`Users`);
-    dataUsers.on('value', function(datos) {
+    dataUsers.on('value', function (datos) {
       let userResult = datos.val();
       let verify = 0;
-      for(let i =0 ; i<userResult.length ;i++){
-        if(user.email == userResult[i].email){
+      for (let i = 0; i < userResult.length; i++) {
+        if (user.email == userResult[i].email) {
           verify++;
           localStorage.sede = userResult[i].sede;
           localStorage.emailNotification = userResult[i].email;
@@ -35,19 +35,19 @@ $('#authorize-button').on('click', function () {
           break;
         }
       }
-        if(verify==0){
-                    // Alerta 'correo inválido');
-            swal({
-              text: 'Correo inválido.',
-              type: 'warning',
-              confirmButtonColor: '#e90049',
-            });
-          
-        }
-    
+      if (verify == 0) {
+        // Alerta 'correo inválido');
+        swal({
+          text: 'Correo inválido.',
+          type: 'warning',
+          confirmButtonColor: '#e90049',
+        });
+
+      }
+
     });
-   
-  }).catch(function(error) {
+
+  }).catch(function (error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;

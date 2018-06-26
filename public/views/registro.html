@@ -4,11 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- Grilla personalizada -->
   <link rel="stylesheet" href="../css/grid.css">
   <!-- CSS Datedropper -->
-  <link href="../vendors/datedropper/datedropper.min.css" rel="stylesheet"/>
+  <link href="../vendors/datedropper/datedropper.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="../vendors/datedropper/my-style.css">
   <!-- Iconos -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -16,27 +18,36 @@
   <title>Registro de tareas</title>
 </head>
 
-<body >
+<body>
   <!-- Barra de navegación -->
   <header>
     <div class="container">
-          <div class="row">      
-            <div class="col-xs-12 col-sm-4">
-              <a href="#" class=""><span class="material-icons bt-menu">menu</span>
-                <img class="responsive-img-logo" src="../assets/images/logo_Mallplaza__horiz.png" alt="">
-              </a>
-              <!--<a class="" href=""><img class="responsive-img-logo" src="../assets/images/logo_Mallplaza__horiz.png" alt=""></a>-->
-            </div>
-            <nav class="col-sm-8">
-              <ul class="row">
-                <li class="col-sm-3"><a href="area.html">Inicio</a></li>
-                <li class="col-sm-3"><a href="calendario.html">Calendario</a></li>
-                <li class="col-sm-3"><a class="active">Nueva Tarea</a></li>
-                <li class="col-sm-3"><a href="../index.html">Cerrar sesión</a></li>
-              </ul>
-            </nav>
-          </div>
-      
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <a href="#" class="">
+            <span class="material-icons bt-menu">menu</span>
+            <img class="responsive-img-logo" src="../assets/images/logo_Mallplaza__horiz.png" alt="">
+          </a>
+          <!--<a class="" href=""><img class="responsive-img-logo" src="../assets/images/logo_Mallplaza__horiz.png" alt=""></a>-->
+        </div>
+        <nav class="col-sm-8">
+          <ul class="row">
+            <li class="col-sm-3">
+              <a href="area.html">Inicio</a>
+            </li>
+            <li class="col-sm-3">
+              <a href="calendario.html">Calendario</a>
+            </li>
+            <li class="col-sm-3">
+              <a class="active">Nueva Tarea</a>
+            </li>
+            <li class="col-sm-3">
+              <a href="../index.html">Cerrar sesión</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
     </div>
   </header>
   <!-- Formulario -->
@@ -48,42 +59,44 @@
         </figure>
       </div>
       <div class="col-xs-12 col-sm-6">
-        <div class="row">        
+        <div class="row">
           <form action="" class="col-xs-offset-1 col-xs-10">
             <div class="title">Crear tarea</div>
-            <div class="row">            
+            <div class="row">
               <div class="col-xs-12 input-field">
                 <label for="title-new">Título de la tarea:</label>
                 <input id="title-new" type="text">
               </div>
             </div>
-            <div class="row">            
+            <div class="row">
               <div class="col-xs-12 input-field">
                 <label for="description-new">Descripción:</label>
                 <input id="description-new" type="text">
               </div>
             </div>
-            <div class="row">            
+            <div class="row">
               <div class="col-xs-4 input-field div-fec-start">
                 <label for="date-new">Fecha de inicio:</label>
-                <input id="date-new" type="text" data-lang="es" data-format="d F, Y" data-large-mode="true" data-large-default="true" data-lock="from" data-theme="my-style" data-modal="true" data-min-year="2018" data-max-year="2030">
+                <input id="date-new" type="text" data-lang="es" data-format="d F, Y" data-large-mode="true" data-large-default="true" data-lock="from"
+                  data-theme="my-style" data-modal="true" data-min-year="2018" data-max-year="2030">
               </div>
               <div class="col-xs-4">
-                  &nbsp;
+                &nbsp;
               </div>
               <div class="col-xs-4 input-field">
                 <label for="date-end-new">Fecha de fin:</label>
-                <input id="date-end-new" type="text" data-init-set="false" data-lock="from" data-lang="es" data-format="d F, Y" data-large-mode="true" data-large-default="true" data-theme="my-style" data-modal="true" data-min-year="2018" data-max-year="2030">
-              </div>              
+                <input id="date-end-new" type="text" data-init-set="false" data-lock="from" data-lang="es" data-format="d F, Y" data-large-mode="true"
+                  data-large-default="true" data-theme="my-style" data-modal="true" data-min-year="2018" data-max-year="2030">
+              </div>
             </div>
-            <div class="row">            
+            <div class="row">
               <div class="col-xs-12 input-field">
                 <label for="provider">Proveedor:(Opcional)</label>
                 <input id="provider" name="provider" type="text" class="">
               </div>
             </div>
             <button class="btn addToCalendar" id="addToCalendar">Crear</button>
-            <button class="btn signout"  id="signout-button">Cancelar</button>
+            <button class="btn signout" id="signout-button">Cancelar</button>
           </form>
         </div>
       </div>

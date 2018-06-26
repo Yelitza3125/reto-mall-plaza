@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
   <link rel="stylesheet" href="../vendors/fullcalendar/fullcalendar.css" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
     crossorigin="anonymous">
@@ -52,50 +54,50 @@
         <div class="float-left">
           <h1 id="title-calendar"></h1>
         </div>
-      </div>      
+      </div>
       <div class="col-6">
         <div class="float-right icon-mant">
           <span class="fas fa-wrench"></span>
         </div>
       </div>
+    </div>
+    <!-- Colores de leyendas -->
+    <div class="row">
+      <div class="col-12">
+        <ul class="list-legend">
+          <li>
+            <span class="circle gray"></span>
+            <span>Programada</span>
+          </li>
+          <li>
+            <span class="circle orange"></span>
+            <span>Cotizacion</span>
+          </li>
+          <li>
+            <span class="circle yellow"></span>
+            <span>OC en proceso</span>
+          </li>
+          <li>
+            <span class="circle green"></span>
+            <span>Pro en proceso</span>
+          </li>
+          <li>
+            <span class="circle darkslategray"></span>
+            <span>Revisión / HES</span>
+          </li>
+          <li>
+            <span class="circle blue"></span>
+            <span>Finalizado</span>
+          </li>
+          <li>
+            <span class="circle red"></span>
+            <span>Fuera de fecha</span>
+          </li>
+        </ul>
       </div>
-      <!-- Colores de leyendas -->
-      <div class="row">
-        <div class="col-12">
-          <ul class="list-legend">
-            <li>
-              <span class="circle gray"></span>
-              <span>Programada</span>
-            </li>
-            <li>
-              <span class="circle orange"></span>
-              <span>Cotizacion</span>
-            </li>
-            <li>
-              <span class="circle yellow"></span>
-              <span>OC en proceso</span>
-            </li>
-            <li>
-              <span class="circle green"></span>
-              <span>Pro en proceso</span>
-            </li>
-            <li>
-              <span class="circle darkslategray"></span>
-              <span>Revisión / HES</span>
-            </li>
-            <li>
-              <span class="circle blue"></span>
-              <span>Finalizado</span>
-            </li>
-            <li>
-              <span class="circle red"></span>
-              <span>Fuera de fecha</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-     
-      <div id="alert"></div>
+    </div>
+
+    <div id="alert"></div>
 
     <div id="calendar" class=""></div>
   </section>
@@ -166,7 +168,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
     crossorigin="anonymous"></script>
   <script src='../vendors/fullcalendar/lib/moment.min.js'></script>
-  
+
   <script src='../vendors/fullcalendar/fullcalendar.js'></script>
   <script src='../vendors/fullcalendar/locale/es.js'></script>
   <script src='../vendors/fullcalendar/gcal.js'></script>

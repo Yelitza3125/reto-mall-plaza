@@ -1,7 +1,7 @@
 {
   "name": "reto-mall-plaza",
   "version": "1.0.0",
-  "description": "",
+  "description": "La plataforma de gestión de proyectos del área de Mantenimiento del Centro Comercial Mall Plaza Bellavista, permite mantener un seguimiento de los proyectos y tareas pendientes a través de un sistema de notificaciones por correo electrónico.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
