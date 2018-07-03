@@ -303,7 +303,7 @@ let id = parseInt(localStorage.getItem('lastEvent'));
 
 function AddEventBD() {
   // obteniendo el valor id siguiente
-
+  const provider = $('#provider');
   let eventsDataNew = database.ref(`${sede}/${yearAddBd}/${areaSelect}/${id}`);
 
   let dateStartNew = new Date(dateNew.val()).toISOString().substr(0, 10);
@@ -316,7 +316,8 @@ function AddEventBD() {
     state: '7',
     // state: localStorage.stateNew,
     id: id,
-    color: '#CCCCCC'
+    color: '#CCCCCC',
+    provider:provider.val()
 
   }, function () {
     console.log('Se registro correctamente');

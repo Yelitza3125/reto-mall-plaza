@@ -205,7 +205,7 @@ function renderInfo(valor, indice) {
           <td>${valor.title}</td>
           <td>${valor.descripcion}</td>
           <td>${valor.start}</td>
-          <td>${valor.end}</td>
+          <td>${(valor.end).slice(0, 10)}</td>
           <td class="box-state-detail" style="background-color:${valor.color}; margin:0.5rem;">${nameState(valor.state)}</td>
       </tr>`;
   box.append(template);
@@ -257,8 +257,7 @@ $('#reporte').on('click', function () {
   </tr>`;
 box.append(template);
   dataUsers.on('value', function (datos) {
-    
-    
+       
     let result = datos.val();
     console.log(result)
     let resultAllYears = Object.values(result);
