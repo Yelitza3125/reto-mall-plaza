@@ -5,6 +5,11 @@ La plataforma de gestión de proyectos del área de Mantenimiento del Centro Com
 ![Plataforma Mall Plaza](https://user-images.githubusercontent.com/32287220/36600572-a766f3d0-1880-11e8-890a-84a575c655b1.png)
 
 
+## Desarrollado para
+
+[Laboratoria](http://laboratoria.la)
+
+
 ##  Equipo de trabajo:
 
 + Rodriguez, Lidia
