@@ -2,7 +2,7 @@
 
 La plataforma de gestión de proyectos del área de Mantenimiento del Centro Comercial Mall Plaza Bellavista, permite mantener un seguimiento de los proyectos y tareas pendientes a través de un sistema de notificaciones por correo electrónico. 
 
-![Plataforma Mall Plaza](https://user-images.githubusercontent.com/32287220/36600572-a766f3d0-1880-11e8-890a-84a575c655b1.png)
+![mall-plaza](https://user-images.githubusercontent.com/32287220/61250744-1d10ab80-a71e-11e9-9402-d0075e01cc11.png)
 
 
 ## Desarrollado para
