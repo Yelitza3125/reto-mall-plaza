@@ -1,4 +1,4 @@
-# Plataforma de gestión de proyectos del Centro Comercial Mall Plaza.
+# **Plataforma de gestión de proyectos del Centro Comercial Mall Plaza**
 
 La plataforma de gestión de proyectos del área de Mantenimiento del Centro Comercial Mall Plaza Bellavista, permite mantener un seguimiento de los proyectos y tareas pendientes a través de un sistema de notificaciones por correo electrónico. 
 
@@ -8,7 +8,7 @@ La plataforma de gestión de proyectos del área de Mantenimiento del Centro Com
 ## Desarrollado para
 
 [Laboratoria](http://laboratoria.la)
-
+***
 
 ##  Equipo de trabajo:
 
