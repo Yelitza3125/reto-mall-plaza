@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/Yelitza3125/reto-mall-plaza#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.17.3"
   }
 }
